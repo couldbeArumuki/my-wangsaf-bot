@@ -11,19 +11,28 @@ Bot WhatsApp gratis berbasis [Baileys](https://github.com/WhiskeySockets/Baileys
 | 🛠 Utility | `.ping` | Cek apakah bot aktif |
 | | `.runtime` | Lihat uptime bot |
 | | `.owner` | Info owner bot |
-| | `.menu` / `.help` | Daftar semua command |
+| | `.menu` / `.help` | Daftar semua command (kategorized) |
 | 👥 Group Admin | `.tagall [pesan]` | Tag semua member grup |
 | | `.kick` | Keluarkan member (reply / nomor) |
 | | `.add <nomor>` | Tambah member ke grup |
 | | `.promote` | Jadikan member admin |
 | | `.demote` | Cabut status admin member |
 | ⬇️ Downloader | `.tiktok <url>` | Download video TikTok tanpa watermark |
-| | `.ytmp3 <url>` | Download audio YouTube |
-| | `.ytmp4 <url>` | Download video YouTube |
+| | `.ytmp3 <url>` | Download audio YouTube (via yt-dlp) |
+| | `.ytmp4 <url>` | Download video YouTube (via yt-dlp) |
 | 🖼 Sticker | `.sticker` | Buat sticker dari gambar/video (reply) |
 | | `.toimg` | Konversi sticker ke gambar (reply) |
-| 💬 Text Tools | `.tts <teks>` | Text-to-speech (voice note) |
+| 🔊 Text Tools | `.tts <teks>` | Text-to-speech (voice note) |
 | | `.say <teks>` | Text-to-speech (audio biasa) |
+| 🎮 Mini Games | `.suit <batu/gunting/kertas>` | Batu-gunting-kertas vs bot |
+| | `.tebakangka [angka]` | Tebak angka 1–100 (7 percobaan) |
+| 💬 Interaktif | `.quote` | Kutipan motivasi acak |
+| | `.afk [alasan]` | Set status AFK (otomatis cancel kalau kirim pesan) |
+| | `.unafk` | Batalkan AFK secara manual |
+| | `.remind <waktu> <pesan>` | Pengingat (contoh: `.remind 10m Minum obat`) |
+| 📊 Poll | `.poll <pertanyaan> \| opsi1 \| opsi2` | Buat polling di grup |
+| | `.vote <id> <nomor>` | Vote di polling aktif |
+| | `.pollresult <id>` | Lihat hasil polling |
 
 ---
 
@@ -89,9 +98,10 @@ my-wangsaf-bot/
 │   └── plugins/
 │       ├── utility.js    # ping, runtime, owner, menu
 │       ├── group.js      # tagall, kick, add, promote, demote
-│       ├── downloader.js # tiktok, ytmp3, ytmp4
+│       ├── downloader.js # tiktok, ytmp3, ytmp4 (via yt-dlp)
 │       ├── sticker.js    # sticker, toimg
-│       └── texttools.js  # tts, say
+│       ├── texttools.js  # tts, say
+│       └── interactive.js# suit, tebakangka, quote, afk, poll, remind
 ├── auth_info/            # Session files (diabaikan Git)
 ├── config.js             # Konfigurasi global
 ├── .env                  # Environment variables (tidak ter-commit)
@@ -119,27 +129,44 @@ Command langsung aktif tanpa perlu register di tempat lain.
 ## ⬇️ Catatan Downloader
 
 ### TikTok
-Menggunakan API publik [tikwm.com](https://tikwm.com) (gratis, no-watermark). Bisa berubah tanpa pemberitahuan.
-
-**Alternatif**: Ganti `tiktokAdapter()` di `src/plugins/downloader.js` dengan adapter lain.
+Menggunakan API publik [tikwm.com](https://tikwm.com) (gratis, tanpa watermark) sebagai sumber utama.
+Jika tikwm.com gagal atau mengembalikan respons tidak valid, bot otomatis fallback ke **yt-dlp lokal**.
 
 ### YouTube (ytmp3/ytmp4)
-Menggunakan `ytdl-core`, yang sering **dibatasi (rate-limited) oleh YouTube**.
+Menggunakan **yt-dlp** yang berjalan secara lokal di mesin bot (paling stabil, gratis).
 
-**Rekomendasi untuk production**:
-1. Install [yt-dlp](https://github.com/yt-dlp/yt-dlp) di server
-2. Ganti `ytmp3Adapter()` / `ytmp4Adapter()` di `src/plugins/downloader.js` dengan panggilan ke binary `yt-dlp`
+#### Install yt-dlp (wajib untuk fitur YouTube dan fallback TikTok)
 
-Contoh adapter yt-dlp:
-```js
-const { execSync } = require('child_process')
-async function ytmp3AdapterYtDlp(url) {
-  const tmpPath = `/tmp/audio_${Date.now()}.mp3`
-  execSync(`yt-dlp -x --audio-format mp3 -o "${tmpPath}" "${url}"`)
-  const buffer = fs.readFileSync(tmpPath)
-  fs.unlinkSync(tmpPath)
-  return { buffer, filename: 'audio.mp3', mime: 'audio/mpeg' }
-}
+**Windows (laptop):**
+1. Buka https://github.com/yt-dlp/yt-dlp/releases/latest
+2. Unduh `yt-dlp.exe`
+3. Pilih salah satu cara:
+   - Simpan ke folder yang sudah ada di PATH (contoh: `C:\Windows\System32\`) — langsung bisa dipakai
+   - **Atau** simpan di folder bebas (misal `C:\tools\yt-dlp.exe`), lalu set di `.env`:
+     ```
+     YTDLP_PATH=C:\tools\yt-dlp.exe
+     ```
+4. Verifikasi: buka Command Prompt, ketik `yt-dlp --version`
+
+**Linux / Mac:**
+```bash
+pip install yt-dlp
+# atau
+brew install yt-dlp     # Mac
+sudo apt install yt-dlp # Ubuntu/Debian
+```
+
+**Update yt-dlp** (lakukan berkala agar tidak patah karena update YouTube):
+```bash
+yt-dlp -U          # Linux/Mac
+# Windows: unduh ulang yt-dlp.exe dari halaman releases
+```
+
+#### Konfigurasi di `.env`
+```env
+YTDLP_PATH=yt-dlp          # path ke binary (default: 'yt-dlp' di PATH)
+TIKTOK_TIMEOUT=20000       # timeout request ke tikwm.com (ms)
+DOWNLOAD_TIMEOUT=120000    # timeout proses download yt-dlp (ms)
 ```
 
 ### TTS (.tts / .say)
@@ -186,6 +213,16 @@ pm2 startup
 | Error `Cannot find module 'qrcode'` | Jalankan `npm install` di folder project. |
 
 **Lokasi file gambar QR:** `./tmp/qr.png` (relatif terhadap folder project)
+
+### Downloader error
+
+| Gejala | Solusi |
+|---|---|
+| `yt-dlp tidak ditemukan` | Install yt-dlp dan pastikan ada di PATH, atau set `YTDLP_PATH` di `.env`. Lihat panduan di atas. |
+| `yt-dlp error: ...` | Update yt-dlp ke versi terbaru (`yt-dlp -U`). YouTube sering ubah format yang membutuhkan versi terbaru. |
+| `TikTok download gagal` | Coba lagi — tikwm.com kadang rate-limit. Bot akan fallback ke yt-dlp otomatis. Pastikan yt-dlp terinstall. |
+| `YouTube MP3/MP4 gagal` (video pribadi/umur) | Video yang di-private, dibatasi umur, atau berisi DRM tidak bisa diunduh. |
+| File terlalu besar, tidak terkirim | WhatsApp punya batas ~64 MB per media. Untuk video panjang, coba `.ytmp3` saja. |
 
 ---
 
