@@ -221,7 +221,7 @@ pm2 startup
 | `yt-dlp tidak ditemukan` | Install yt-dlp dan pastikan ada di PATH, atau set `YTDLP_PATH` di `.env`. Lihat panduan di atas. |
 | `yt-dlp error: ...` | Update yt-dlp ke versi terbaru (`yt-dlp -U`). YouTube sering ubah format yang membutuhkan versi terbaru. |
 | `TikTok download gagal` | Coba lagi — tikwm.com kadang rate-limit. Bot akan fallback ke yt-dlp otomatis. Pastikan yt-dlp terinstall. |
-| `YouTube MP3/MP4 gagal` (video pribadi/umur) | Video yang diprivate, umur, atau berisi DRM tidak bisa diunduh. |
+| `YouTube MP3/MP4 gagal` (video pribadi/umur) | Video yang di-private, dibatasi umur, atau berisi DRM tidak bisa diunduh. |
 | File terlalu besar, tidak terkirim | WhatsApp punya batas ~64 MB per media. Untuk video panjang, coba `.ytmp3` saja. |
 
 ---

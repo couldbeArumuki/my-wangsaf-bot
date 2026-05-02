@@ -62,20 +62,6 @@ function formatDuration(ms) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // AFK: otomatis-hapus status AFK saat user aktif lagi
-// Dipanggil dari handler sebelum eksekusi command — lihat catatan di bawah
-// ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * Periksa apakah pengirim sedang AFK dan kembalikan infonya.
- * Handler di src/handler.js bisa panggil ini untuk auto-cancel AFK.
- */
-function checkAfkReturn(senderJid) {
-  if (!afkMap.has(senderJid)) return null
-  const data = afkMap.get(senderJid)
-  afkMap.delete(senderJid)
-  return data
-}
-
 // ─────────────────────────────────────────────────────────────────────────────
 // Command: .afk
 // ─────────────────────────────────────────────────────────────────────────────
@@ -251,7 +237,9 @@ async function pollresult({ jid, args, reply }) {
   }
 
   const { question, options, votes } = pollMap.get(pollId)
-  const counts = options.map((_, i) => [...votes.values()].filter((v) => v === i).length)
+  // Hitung suara dalam satu pass (O(m) dimana m = jumlah pemilih)
+  const counts = new Array(options.length).fill(0)
+  for (const voteIdx of votes.values()) counts[voteIdx]++
   const total = counts.reduce((a, b) => a + b, 0)
 
   const bars = options.map((opt, i) => {
