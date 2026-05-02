@@ -29,6 +29,17 @@ const menuList = {
   // Text tools
   tts: 'Text-to-speech (reply atau ketik pesan)',
   say: 'Bot ngomong sesuatu (Google TTS)',
+
+  // Interaktif
+  suit: 'Main batu-gunting-kertas melawan bot',
+  tebakangka: 'Tebak angka 1–100 (ketik lagi untuk menebak)',
+  quote: 'Kutipan motivasi acak',
+  afk: 'Set status AFK dengan alasan (opsional)',
+  unafk: 'Batalkan status AFK secara manual',
+  poll: 'Buat polling di grup',
+  vote: 'Vote di polling yang aktif',
+  pollresult: 'Lihat hasil polling',
+  remind: 'Set pengingat (contoh: .remind 10m Minum obat)',
 }
 
 async function ping({ reply }) {
@@ -51,29 +62,65 @@ async function owner({ reply }) {
 }
 
 async function menu({ reply }) {
+  const p = config.prefix
   const lines = [
-    `🤖 *${config.botName} Command List*`,
-    `Prefix: \`${config.prefix}\``,
-    '',
+    `🤖 *${config.botName}*`,
+    `Prefix: \`${p}\` | Ketik command untuk menggunakannya`,
+    `─────────────────────────`,
   ]
 
-  const categories = {
-    '🛠 Utility': ['ping', 'runtime', 'owner', 'menu', 'help'],
-    '👥 Group Admin': ['tagall', 'kick', 'add', 'promote', 'demote'],
-    '⬇️ Downloader': ['tiktok', 'ytmp3', 'ytmp4'],
-    '🖼 Sticker': ['sticker', 'toimg'],
-    '💬 Text Tools': ['tts', 'say'],
-  }
+  const categories = [
+    {
+      icon: '🛠',
+      name: 'Utility',
+      cmds: ['ping', 'runtime', 'owner', 'menu'],
+    },
+    {
+      icon: '⬇️',
+      name: 'Downloader',
+      cmds: ['tiktok', 'ytmp3', 'ytmp4'],
+    },
+    {
+      icon: '🎮',
+      name: 'Mini Games',
+      cmds: ['suit', 'tebakangka'],
+    },
+    {
+      icon: '💬',
+      name: 'Interaktif',
+      cmds: ['afk', 'unafk', 'quote', 'remind'],
+    },
+    {
+      icon: '📊',
+      name: 'Poll',
+      cmds: ['poll', 'vote', 'pollresult'],
+    },
+    {
+      icon: '👥',
+      name: 'Group Admin',
+      cmds: ['tagall', 'kick', 'add', 'promote', 'demote'],
+    },
+    {
+      icon: '🖼',
+      name: 'Sticker',
+      cmds: ['sticker', 'toimg'],
+    },
+    {
+      icon: '🔊',
+      name: 'Text Tools',
+      cmds: ['tts', 'say'],
+    },
+  ]
 
-  for (const [cat, cmds] of Object.entries(categories)) {
-    lines.push(`*${cat}*`)
-    for (const cmd of cmds) {
-      lines.push(`  ${config.prefix}${cmd} — ${menuList[cmd] || ''}`)
+  for (const cat of categories) {
+    lines.push(`\n*${cat.icon} ${cat.name}*`)
+    for (const cmd of cat.cmds) {
+      lines.push(`  ${p}${cmd} — ${menuList[cmd] || ''}`)
     }
-    lines.push('')
   }
 
-  lines.push('_Ketik command untuk menggunakannya._')
+  lines.push(`\n─────────────────────────`)
+  lines.push(`Total: ${Object.keys(menuList).length} command`)
   await reply(lines.join('\n'))
 }
 

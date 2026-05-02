@@ -11,19 +11,28 @@ Bot WhatsApp gratis berbasis [Baileys](https://github.com/WhiskeySockets/Baileys
 | 🛠 Utility | `.ping` | Cek apakah bot aktif |
 | | `.runtime` | Lihat uptime bot |
 | | `.owner` | Info owner bot |
-| | `.menu` / `.help` | Daftar semua command |
+| | `.menu` / `.help` | Daftar semua command (kategorized) |
 | 👥 Group Admin | `.tagall [pesan]` | Tag semua member grup |
 | | `.kick` | Keluarkan member (reply / nomor) |
 | | `.add <nomor>` | Tambah member ke grup |
 | | `.promote` | Jadikan member admin |
 | | `.demote` | Cabut status admin member |
 | ⬇️ Downloader | `.tiktok <url>` | Download video TikTok tanpa watermark |
-| | `.ytmp3 <url>` | Download audio YouTube |
-| | `.ytmp4 <url>` | Download video YouTube |
+| | `.ytmp3 <url>` | Download audio YouTube (via yt-dlp) |
+| | `.ytmp4 <url>` | Download video YouTube (via yt-dlp) |
 | 🖼 Sticker | `.sticker` | Buat sticker dari gambar/video (reply) |
 | | `.toimg` | Konversi sticker ke gambar (reply) |
-| 💬 Text Tools | `.tts <teks>` | Text-to-speech (voice note) |
+| 🔊 Text Tools | `.tts <teks>` | Text-to-speech (voice note) |
 | | `.say <teks>` | Text-to-speech (audio biasa) |
+| 🎮 Mini Games | `.suit <batu/gunting/kertas>` | Batu-gunting-kertas vs bot |
+| | `.tebakangka [angka]` | Tebak angka 1–100 (7 percobaan) |
+| 💬 Interaktif | `.quote` | Kutipan motivasi acak |
+| | `.afk [alasan]` | Set status AFK (otomatis cancel kalau kirim pesan) |
+| | `.unafk` | Batalkan AFK secara manual |
+| | `.remind <waktu> <pesan>` | Pengingat (contoh: `.remind 10m Minum obat`) |
+| 📊 Poll | `.poll <pertanyaan> \| opsi1 \| opsi2` | Buat polling di grup |
+| | `.vote <id> <nomor>` | Vote di polling aktif |
+| | `.pollresult <id>` | Lihat hasil polling |
 
 ---
 
@@ -89,9 +98,10 @@ my-wangsaf-bot/
 │   └── plugins/
 │       ├── utility.js    # ping, runtime, owner, menu
 │       ├── group.js      # tagall, kick, add, promote, demote
-│       ├── downloader.js # tiktok, ytmp3, ytmp4
+│       ├── downloader.js # tiktok, ytmp3, ytmp4 (via yt-dlp)
 │       ├── sticker.js    # sticker, toimg
-│       └── texttools.js  # tts, say
+│       ├── texttools.js  # tts, say
+│       └── interactive.js# suit, tebakangka, quote, afk, poll, remind
 ├── auth_info/            # Session files (diabaikan Git)
 ├── config.js             # Konfigurasi global
 ├── .env                  # Environment variables (tidak ter-commit)
