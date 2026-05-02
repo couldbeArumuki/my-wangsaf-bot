@@ -7,10 +7,40 @@ const {
 } = require('@whiskeysockets/baileys')
 const pino = require('pino')
 const path = require('path')
+const fs = require('fs')
+const { spawn } = require('child_process')
+const QRCode = require('qrcode')
+const qrTerminal = require('qrcode-terminal')
 const { handleMessage } = require('./handler')
 const config = require('../config')
 
 const logger = pino({ level: 'silent' })
+
+const QR_IMAGE_PATH = path.join(__dirname, '..', 'tmp', 'qr.png')
+
+async function showQR(qr) {
+  // Print ASCII QR in terminal as fallback
+  qrTerminal.generate(qr, { small: true })
+  console.log('\n[QR] Scan QR di atas dengan WhatsApp kamu.\n')
+
+  // Generate PNG and auto-open it
+  try {
+    fs.mkdirSync(path.dirname(QR_IMAGE_PATH), { recursive: true })
+    await QRCode.toFile(QR_IMAGE_PATH, qr)
+    console.log(`[QR] Gambar QR disimpan di: ${QR_IMAGE_PATH}`)
+    let child
+    if (process.platform === 'win32') {
+      child = spawn('cmd', ['/c', 'start', '', QR_IMAGE_PATH], { stdio: 'ignore', detached: true })
+    } else if (process.platform === 'darwin') {
+      child = spawn('open', [QR_IMAGE_PATH], { stdio: 'ignore' })
+    } else {
+      child = spawn('xdg-open', [QR_IMAGE_PATH], { stdio: 'ignore' })
+    }
+    child.on('error', (err) => console.warn('[QR] Gagal membuka gambar QR:', err.message))
+  } catch (err) {
+    console.warn('[QR] Gagal membuat/membuka gambar QR:', err.message)
+  }
+}
 
 async function startBot() {
   const authFolder = path.join(__dirname, '..', 'auth_info', config.sessionName)
@@ -21,7 +51,6 @@ async function startBot() {
     version,
     auth: state,
     logger,
-    printQRInTerminal: true,
     browser: [config.botName, 'Chrome', '1.0.0'],
   })
 
@@ -29,7 +58,7 @@ async function startBot() {
 
   sock.ev.on('connection.update', ({ connection, lastDisconnect, qr }) => {
     if (qr) {
-      console.log('\n[QR] Scan QR di atas dengan WhatsApp kamu.\n')
+      showQR(qr).catch((err) => console.warn('[QR] Error:', err.message))
     }
 
     if (connection === 'close') {

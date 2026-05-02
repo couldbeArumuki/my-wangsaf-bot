@@ -58,9 +58,16 @@ SESSION_NAME=my-wangsaf-bot
 npm start
 ```
 
-Scan QR code yang muncul di terminal menggunakan WhatsApp kamu.
+Saat pertama kali dijalankan (sebelum ada session tersimpan), bot akan:
+1. **Mencetak QR ASCII di terminal** — bisa langsung kamu scan.
+2. **Menyimpan gambar QR ke `tmp/qr.png`** dan **membukanya otomatis** di browser/image viewer.
+
+Scan QR menggunakan WhatsApp di HP:
+- Buka **Pengaturan → Perangkat Tertaut → Tautkan Perangkat**
+- Arahkan kamera ke QR.
 
 Session akan disimpan di folder `auth_info/` secara otomatis (tidak ter-commit ke Git).
+Pada run berikutnya bot akan langsung terhubung tanpa perlu scan QR lagi.
 
 ### 5. Mode Development (auto-restart)
 ```bash
@@ -163,6 +170,22 @@ pm2 startup
 
 - Jangan commit `.env` atau folder `auth_info/` ke Git (sudah ada di `.gitignore`)
 - Nomor owner hanya dibaca dari environment variable, tidak di-hardcode
+
+---
+
+## 🛠 Troubleshooting
+
+### QR tidak muncul / tidak bisa scan
+
+| Gejala | Solusi |
+|---|---|
+| Terminal hanya menampilkan teks, tidak ada QR | Pastikan `npm install` sudah dijalankan dan tidak ada error. Coba hapus `node_modules/` dan jalankan ulang `npm install`. |
+| QR ASCII muncul tapi tidak terbaca kamera | Perkecil ukuran font terminal atau gunakan gambar QR di `tmp/qr.png`. |
+| Gambar QR tidak terbuka otomatis | Buka secara manual file `tmp/qr.png` yang ada di folder project. |
+| Scan berhasil tapi bot minta QR lagi setelah restart | Jangan hapus folder `auth_info/`. Folder ini menyimpan session login. |
+| Error `Cannot find module 'qrcode'` | Jalankan `npm install` di folder project. |
+
+**Lokasi file gambar QR:** `./tmp/qr.png` (relatif terhadap folder project)
 
 ---
 
