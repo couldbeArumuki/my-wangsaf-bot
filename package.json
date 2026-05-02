@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "ytdlp-service": "node services/ytdlp-server.js"
   },
   "keywords": [
     "whatsapp",
@@ -22,8 +23,7 @@
     "pino": "^9.1.0",
     "qrcode": "^1.5.4",
     "qrcode-terminal": "^0.12.0",
-    "sharp": "^0.33.3",
-    "ytdl-core": "^4.11.5"
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

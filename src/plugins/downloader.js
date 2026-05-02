@@ -1,8 +1,4 @@
 const axios = require('axios')
-const { pipeline } = require('stream/promises')
-const fs = require('fs')
-const path = require('path')
-const os = require('os')
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Adapter interface untuk downloader
@@ -10,88 +6,166 @@ const os = require('os')
 // Mudah diganti dengan implementasi lain tanpa ubah command
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Baca konfigurasi dari environment (di-load oleh dotenv di src/index.js)
+const YTDLP_API_URL = (process.env.YTDLP_API_URL || '').replace(/\/$/, '')
+const TIKTOK_API_URL = (process.env.TIKTOK_API_URL || '').replace(/\/$/, '')
+
+// ─── yt-dlp microservice ─────────────────────────────────────────────────────
+
 /**
- * TikTok downloader — menggunakan tikwm.com API publik (gratis, no-watermark)
- * Fallback: kirim pesan error informatif
+ * Download melalui yt-dlp microservice (services/ytdlp-server.js).
+ * Mendukung YouTube, TikTok, dan situs lain yang didukung yt-dlp.
+ * @param {string} url
+ * @param {'mp3'|'mp4'} format
+ * @returns {Promise<{buffer: Buffer, filename: string, mime: string}>}
+ */
+async function downloadViaYtDlp(url, format) {
+  if (!YTDLP_API_URL) {
+    throw new Error(
+      'yt-dlp service belum dikonfigurasi. Set YTDLP_API_URL di .env lalu jalankan: npm run ytdlp-service'
+    )
+  }
+  const endpoint = `${YTDLP_API_URL}/download?url=${encodeURIComponent(url)}&format=${format}`
+  try {
+    const resp = await axios.get(endpoint, {
+      responseType: 'arraybuffer',
+      timeout: 180000, // 3 menit untuk video besar
+    })
+    const mime = format === 'mp3' ? 'audio/mpeg' : 'video/mp4'
+    const filename = format === 'mp3' ? 'audio.mp3' : 'video.mp4'
+    return { buffer: Buffer.from(resp.data), filename, mime }
+  } catch (err) {
+    if (err.response) {
+      let errMsg = `yt-dlp service error (HTTP ${err.response.status})`
+      try {
+        const json = JSON.parse(Buffer.from(err.response.data).toString())
+        if (json.error) errMsg = json.error
+      } catch {
+        // respons bukan JSON — pakai pesan default
+      }
+      throw new Error(errMsg)
+    }
+    throw err
+  }
+}
+
+// ─── TikTok adapters ──────────────────────────────────────────────────────────
+
+/**
+ * TikTok via tikwm.com public API (gratis, no-watermark).
+ */
+async function tiktokViaTikwm(url) {
+  const apiUrl = `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`
+  const { data } = await axios.get(apiUrl, {
+    timeout: 15000,
+    headers: { 'User-Agent': 'Mozilla/5.0' },
+  })
+
+  if (!data?.data) {
+    throw new Error(`tikwm API error: code ${data?.code ?? 'unknown'}`)
+  }
+
+  // Coba HD dulu, fallback ke SD
+  const videoUrl = data.data.hdplay || data.data.play
+  if (!videoUrl || typeof videoUrl !== 'string' || !videoUrl.startsWith('http')) {
+    throw new Error('URL video tidak ditemukan di respons tikwm')
+  }
+
+  const resp = await axios.get(videoUrl, {
+    responseType: 'arraybuffer',
+    timeout: 60000,
+    headers: { Referer: 'https://www.tiktok.com/' },
+  })
+  return { buffer: Buffer.from(resp.data), filename: 'tiktok.mp4', mime: 'video/mp4' }
+}
+
+/**
+ * TikTok via self-hosted custom API (TIKTOK_API_URL).
+ * Expects endpoint: GET /download?url=<tiktok_url>
+ * Response format: { url: "..." } or { data: { play: "..." } }
+ */
+async function tiktokViaCustomApi(url, apiBase) {
+  const endpoint = `${apiBase}/download?url=${encodeURIComponent(url)}`
+  const { data } = await axios.get(endpoint, { timeout: 15000 })
+  const videoUrl = data?.url || data?.data?.hdplay || data?.data?.play
+  if (!videoUrl || typeof videoUrl !== 'string' || !videoUrl.startsWith('http')) {
+    throw new Error('URL video tidak valid dari self-hosted TikTok API')
+  }
+  const resp = await axios.get(videoUrl, { responseType: 'arraybuffer', timeout: 60000 })
+  return { buffer: Buffer.from(resp.data), filename: 'tiktok.mp4', mime: 'video/mp4' }
+}
+
+/**
+ * TikTok downloader — mencoba beberapa provider secara berurutan:
+ * 1. Self-hosted API (TIKTOK_API_URL, jika dikonfigurasi)
+ * 2. tikwm.com (API publik gratis, no-watermark)
+ * 3. yt-dlp microservice (YTDLP_API_URL, jika dikonfigurasi)
  */
 async function tiktokAdapter(url) {
-  try {
-    const apiUrl = `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`
-    const { data } = await axios.get(apiUrl, { timeout: 15000 })
-    if (!data?.data?.play) throw new Error('No play URL returned')
-    const videoUrl = data.data.play
+  const errors = []
 
-    // Validasi domain URL video yang dikembalikan API
-    const parsed = new URL(videoUrl)
-    const allowedHosts = /\.(tiktok|tikwm|tiktokcdn)\.com$/
-    if (!allowedHosts.test(parsed.hostname)) {
-      throw new Error('URL video dari API tidak valid')
+  if (TIKTOK_API_URL) {
+    try {
+      return await tiktokViaCustomApi(url, TIKTOK_API_URL)
+    } catch (err) {
+      errors.push(`Self-hosted TikTok API: ${err.message}`)
     }
-
-    const resp = await axios.get(videoUrl, { responseType: 'arraybuffer', timeout: 30000 })
-    return {
-      buffer: Buffer.from(resp.data),
-      filename: 'tiktok.mp4',
-      mime: 'video/mp4',
-    }
-  } catch (err) {
-    throw new Error(`TikTok download gagal: ${err.message}`)
   }
+
+  try {
+    return await tiktokViaTikwm(url)
+  } catch (err) {
+    errors.push(`tikwm.com: ${err.message}`)
+  }
+
+  if (YTDLP_API_URL) {
+    try {
+      return await downloadViaYtDlp(url, 'mp4')
+    } catch (err) {
+      errors.push(`yt-dlp service: ${err.message}`)
+    }
+  }
+
+  throw new Error(`TikTok download gagal:\n${errors.join('\n')}`)
 }
 
+// ─── YouTube adapters ─────────────────────────────────────────────────────────
+
 /**
- * YouTube MP3 downloader — menggunakan yt-dlp-api (stub/placeholder)
- * Catatan: ytdl-core sering rate-limited oleh YouTube. Untuk production,
- * ganti dengan yt-dlp binary atau layanan alternatif.
- * Lihat README.md untuk panduan.
+ * YouTube MP3 — menggunakan yt-dlp microservice (services/ytdlp-server.js).
+ * Set YTDLP_API_URL di .env dan jalankan: npm run ytdlp-service
  */
 async function ytmp3Adapter(url) {
-  // Stub: coba pakai ytdl-core, fallback ke pesan error
-  try {
-    const ytdl = require('ytdl-core')
-    if (!ytdl.validateURL(url)) throw new Error('URL YouTube tidak valid')
-
-    const info = await ytdl.getInfo(url)
-    const title = info.videoDetails.title.replace(/[^a-z0-9]/gi, '_').substring(0, 50)
-    const tmpPath = path.join(os.tmpdir(), `${title}.mp3`)
-
-    const audioStream = ytdl(url, { quality: 'highestaudio', filter: 'audioonly' })
-    const writeStream = fs.createWriteStream(tmpPath)
-    await pipeline(audioStream, writeStream)
-
-    const buffer = fs.readFileSync(tmpPath)
-    fs.unlinkSync(tmpPath)
-    return { buffer, filename: `${title}.mp3`, mime: 'audio/mpeg' }
-  } catch (err) {
+  if (!YTDLP_API_URL) {
     throw new Error(
-      `YouTube MP3 download gagal. Coba lagi nanti atau gunakan yt-dlp (lihat README).`
+      'YouTube download membutuhkan yt-dlp service.\n' +
+        'Jalankan: npm run ytdlp-service\n' +
+        'Lalu set YTDLP_API_URL=http://localhost:3001 di .env'
     )
+  }
+  try {
+    return await downloadViaYtDlp(url, 'mp3')
+  } catch (err) {
+    throw new Error(`YouTube MP3 download gagal: ${err.message}`)
   }
 }
 
 /**
- * YouTube MP4 downloader — sama seperti ytmp3 tapi video
+ * YouTube MP4 — menggunakan yt-dlp microservice (services/ytdlp-server.js).
+ * Set YTDLP_API_URL di .env dan jalankan: npm run ytdlp-service
  */
 async function ytmp4Adapter(url) {
-  try {
-    const ytdl = require('ytdl-core')
-    if (!ytdl.validateURL(url)) throw new Error('URL YouTube tidak valid')
-
-    const info = await ytdl.getInfo(url)
-    const title = info.videoDetails.title.replace(/[^a-z0-9]/gi, '_').substring(0, 50)
-    const tmpPath = path.join(os.tmpdir(), `${title}.mp4`)
-
-    const videoStream = ytdl(url, { quality: 'highest', filter: 'videoandaudio' })
-    const writeStream = fs.createWriteStream(tmpPath)
-    await pipeline(videoStream, writeStream)
-
-    const buffer = fs.readFileSync(tmpPath)
-    fs.unlinkSync(tmpPath)
-    return { buffer, filename: `${title}.mp4`, mime: 'video/mp4' }
-  } catch (err) {
+  if (!YTDLP_API_URL) {
     throw new Error(
-      `YouTube MP4 download gagal. Coba lagi nanti atau gunakan yt-dlp (lihat README).`
+      'YouTube download membutuhkan yt-dlp service.\n' +
+        'Jalankan: npm run ytdlp-service\n' +
+        'Lalu set YTDLP_API_URL=http://localhost:3001 di .env'
     )
+  }
+  try {
+    return await downloadViaYtDlp(url, 'mp4')
+  } catch (err) {
+    throw new Error(`YouTube MP4 download gagal: ${err.message}`)
   }
 }
 

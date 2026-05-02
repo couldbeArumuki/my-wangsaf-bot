@@ -81,6 +81,8 @@ npm run dev
 
 ```
 my-wangsaf-bot/
+├── services/
+│   └── ytdlp-server.js   # yt-dlp HTTP microservice (YouTube + TikTok)
 ├── src/
 │   ├── index.js          # Entry point, koneksi Baileys
 │   ├── handler.js        # Command router / handler
@@ -119,28 +121,115 @@ Command langsung aktif tanpa perlu register di tempat lain.
 ## ⬇️ Catatan Downloader
 
 ### TikTok
-Menggunakan API publik [tikwm.com](https://tikwm.com) (gratis, no-watermark). Bisa berubah tanpa pemberitahuan.
+Menggunakan API publik [tikwm.com](https://tikwm.com) (gratis, no-watermark) sebagai provider utama. Bot otomatis mencoba fallback provider jika tikwm.com gagal.
 
-**Alternatif**: Ganti `tiktokAdapter()` di `src/plugins/downloader.js` dengan adapter lain.
+**Urutan provider TikTok:**
+1. Self-hosted TikTok API (`TIKTOK_API_URL`, jika dikonfigurasi)
+2. tikwm.com public API (**default, tidak perlu setup tambahan**)
+3. yt-dlp microservice (`YTDLP_API_URL`, jika dikonfigurasi)
 
-### YouTube (ytmp3/ytmp4)
-Menggunakan `ytdl-core`, yang sering **dibatasi (rate-limited) oleh YouTube**.
+---
 
-**Rekomendasi untuk production**:
-1. Install [yt-dlp](https://github.com/yt-dlp/yt-dlp) di server
-2. Ganti `ytmp3Adapter()` / `ytmp4Adapter()` di `src/plugins/downloader.js` dengan panggilan ke binary `yt-dlp`
+### YouTube (ytmp3/ytmp4) — Self-hosted yt-dlp Service
 
-Contoh adapter yt-dlp:
-```js
-const { execSync } = require('child_process')
-async function ytmp3AdapterYtDlp(url) {
-  const tmpPath = `/tmp/audio_${Date.now()}.mp3`
-  execSync(`yt-dlp -x --audio-format mp3 -o "${tmpPath}" "${url}"`)
-  const buffer = fs.readFileSync(tmpPath)
-  fs.unlinkSync(tmpPath)
-  return { buffer, filename: 'audio.mp3', mime: 'audio/mpeg' }
-}
+Fitur download YouTube memerlukan **yt-dlp microservice** yang berjalan secara lokal/VPS. Ini gratis, open-source, dan tidak ada rate limit.
+
+#### Prasyarat
+- **Python 3.8+** dan **pip** terinstall
+- **ffmpeg** terinstall (diperlukan untuk merge video+audio MP4)
+
+#### 1. Install yt-dlp
+
+```bash
+pip install yt-dlp
+# Atau jika pakai pip3:
+pip3 install yt-dlp
+
+# Verifikasi:
+yt-dlp --version
 ```
+
+#### 2. Install ffmpeg
+
+**Ubuntu/Debian:**
+```bash
+sudo apt update && sudo apt install ffmpeg -y
+```
+
+**macOS:**
+```bash
+brew install ffmpeg
+```
+
+**Windows:**
+Download dari [ffmpeg.org](https://ffmpeg.org/download.html) dan tambahkan ke PATH.
+
+#### 3. Konfigurasi bot
+
+Edit `.env`:
+```env
+# Aktifkan yt-dlp service (wajib untuk .ytmp3 dan .ytmp4)
+YTDLP_API_URL=http://localhost:3001
+
+# Port service (default: 3001)
+YTDLP_PORT=3001
+```
+
+#### 4. Jalankan yt-dlp service
+
+Buka terminal kedua (paralel dengan bot):
+```bash
+npm run ytdlp-service
+```
+
+Output yang diharapkan:
+```
+[ytdlp-server] Berjalan di http://localhost:3001
+[ytdlp-server] Endpoint: GET /download?url=<url>&format=mp3|mp4
+[ytdlp-server] Health:   GET /health
+```
+
+#### 5. Jalankan bot
+
+Di terminal pertama:
+```bash
+npm start
+```
+
+#### Menjalankan service + bot bersamaan (PM2)
+
+```bash
+# Install PM2 (jika belum)
+npm install -g pm2
+
+# Jalankan keduanya
+pm2 start src/index.js --name wangsaf-bot
+pm2 start services/ytdlp-server.js --name ytdlp-service
+pm2 save
+pm2 startup
+```
+
+#### Deploy ke VPS
+
+Jika bot berjalan di VPS, service yt-dlp bisa diakses dari mana saja:
+```env
+# Di .env (VPS):
+YTDLP_API_URL=http://localhost:3001   # Service dan bot di VPS yang sama
+YTDLP_PORT=3001
+```
+
+> ⚠️ **Jangan expose port 3001 ke publik** tanpa firewall. Service ini hanya untuk komunikasi internal bot ↔ service.
+
+#### Update yt-dlp (jika download gagal)
+
+YouTube sering update dan memerlukan yt-dlp terbaru:
+```bash
+pip install -U yt-dlp
+# Atau:
+yt-dlp -U
+```
+
+---
 
 ### TTS (.tts / .say)
 Menggunakan Google Translate TTS (tidak resmi). Bisa berubah kapan saja. Batas 200 karakter.
