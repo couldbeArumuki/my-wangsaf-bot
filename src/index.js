@@ -38,6 +38,7 @@ async function showQR(qr) {
       child = spawn('xdg-open', [QR_IMAGE_PATH], { stdio: 'ignore', detached: true })
     }
     child.on('error', (err) => console.warn('[QR] Gagal membuka gambar QR:', err.message))
+    child.unref()
   } catch (err) {
     console.warn('[QR] Gagal membuat/membuka gambar QR:', err.message)
   }
