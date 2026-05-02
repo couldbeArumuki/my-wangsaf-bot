@@ -30,11 +30,12 @@ async function showQR(qr) {
     console.log(`[QR] Gambar QR disimpan di: ${QR_IMAGE_PATH}`)
     let child
     if (process.platform === 'win32') {
-      child = spawn('cmd', ['/c', 'start', '', QR_IMAGE_PATH], { stdio: 'ignore', detached: true })
+      // Use explorer.exe to avoid cmd.exe shell parsing
+      child = spawn('explorer', [QR_IMAGE_PATH], { stdio: 'ignore', detached: true })
     } else if (process.platform === 'darwin') {
-      child = spawn('open', [QR_IMAGE_PATH], { stdio: 'ignore' })
+      child = spawn('open', [QR_IMAGE_PATH], { stdio: 'ignore', detached: true })
     } else {
-      child = spawn('xdg-open', [QR_IMAGE_PATH], { stdio: 'ignore' })
+      child = spawn('xdg-open', [QR_IMAGE_PATH], { stdio: 'ignore', detached: true })
     }
     child.on('error', (err) => console.warn('[QR] Gagal membuka gambar QR:', err.message))
   } catch (err) {
