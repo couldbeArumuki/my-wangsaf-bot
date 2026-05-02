@@ -5,14 +5,20 @@ const {
   DisconnectReason,
   fetchLatestBaileysVersion,
 } = require('@whiskeysockets/baileys')
-const pino = require('pino')
+const qrcodeTerminal = require('qrcode-terminal')
+const QRCode = require('qrcode')
+const open = require('open')
+const fs = require('fs')
 const path = require('path')
+const pino = require('pino')
 const { handleMessage } = require('./handler')
 const config = require('../config')
 
 const logger = pino({ level: 'silent' })
 
 async function startBot() {
+  console.log('[BOOT] startBot jalan')
+
   const authFolder = path.join(__dirname, '..', 'auth_info', config.sessionName)
   const { state, saveCreds } = await useMultiFileAuthState(authFolder)
   const { version } = await fetchLatestBaileysVersion()
@@ -21,26 +27,43 @@ async function startBot() {
     version,
     auth: state,
     logger,
-    printQRInTerminal: true,
+    printQRInTerminal: false,
     browser: [config.botName, 'Chrome', '1.0.0'],
   })
 
+  console.log('[BOOT] socket kebentuk')
+
   sock.ev.on('creds.update', saveCreds)
 
-  sock.ev.on('connection.update', ({ connection, lastDisconnect, qr }) => {
-    if (qr) {
-      console.log('\n[QR] Scan QR di atas dengan WhatsApp kamu.\n')
+  let lastQr = null
+
+  sock.ev.on('connection.update', async (update) => {
+    console.log('[DEBUG]', { connection: update.connection, hasQr: !!update.qr })
+    const { connection, lastDisconnect, qr } = update
+
+    if (connection === 'open') {
+      console.log('[WA] Connected ✅')
+      lastQr = null
+      return
     }
 
     if (connection === 'close') {
-      const shouldReconnect =
-        lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut
-      console.log('[Bot] Koneksi terputus.', shouldReconnect ? 'Reconnecting...' : 'Logged out.')
-      if (shouldReconnect) {
-        setTimeout(startBot, 3000)
-      }
-    } else if (connection === 'open') {
-      console.log(`[Bot] ${config.botName} terhubung!`)
+      // reset biar kalau reconnect minta QR lagi, dia mau print
+      lastQr = null
+    }
+
+    // QR hanya diproses kalau memang ada qr dan belum open
+    if (qr && qr !== lastQr) {
+      lastQr = qr
+
+      qrcodeTerminal.generate(qr, { small: true })
+
+      const outDir = path.join(process.cwd(), 'tmp')
+      const outPath = path.join(outDir, 'qr.png')
+      fs.mkdirSync(outDir, { recursive: true })
+
+      await QRCode.toFile(outPath, qr, { scale: 8 })
+      console.log(`[QR] QR disimpan di: ${outPath}`)
     }
   })
 
@@ -56,9 +79,9 @@ async function startBot() {
       }
     }
   })
+
+  // Keep-alive mechanism to prevent process exit
+  setInterval(() => { }, 1000 * 60)
 }
 
-startBot().catch((err) => {
-  console.error('[Fatal]', err)
-  process.exit(1)
-})
+startBot().catch((e) => console.error('[FATAL]', e))
