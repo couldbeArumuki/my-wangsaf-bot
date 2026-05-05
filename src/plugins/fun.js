@@ -123,7 +123,8 @@ async function ship({ args, fullArgs, reply }) {
 
   const [name1, name2] = [names[0], names[1]]
   const score = randomInt(0, 100)
-  const bar = '❤️'.repeat(Math.round(score / 10)) + '🖤'.repeat(10 - Math.round(score / 10))
+  const filled = Math.min(10, Math.round(score / 10))
+  const bar = '❤️'.repeat(filled) + '🖤'.repeat(10 - filled)
   const comment = randomItem(SHIP_COMMENTS)
 
   await reply(
@@ -172,8 +173,12 @@ async function rank({ sock, jid, isGroup, reply }) {
     return reply('ℹ️ Butuh minimal 2 member di grup untuk menampilkan leaderboard.')
   }
 
-  // Shuffle members dan ambil 5 (atau semua kalau < 5)
-  const shuffled = [...members].sort(() => Math.random() - 0.5)
+  // Fisher-Yates shuffle for unbiased random ordering
+  const shuffled = [...members]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
   const top = shuffled.slice(0, Math.min(5, shuffled.length))
 
   const lines = ['🏆 *Leaderboard Grup (Acak Harian)*\n']
