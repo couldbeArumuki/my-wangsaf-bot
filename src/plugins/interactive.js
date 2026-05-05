@@ -1,7 +1,49 @@
 /**
  * src/plugins/interactive.js
- * Fitur interaktif gratis siap pakai: suit, tebakangka, quote, afk, poll, remind
+ * Fitur interaktif gratis siap pakai: suit, tebakangka, quote, afk, poll, remind, timer, todo
  */
+
+const fs = require('fs')
+const path = require('path')
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Quote dataset (loaded dari file JSON)
+// ─────────────────────────────────────────────────────────────────────────────
+
+let quotesData = []
+try {
+  const quotesPath = path.join(__dirname, '../data/quotes.json')
+  quotesData = JSON.parse(fs.readFileSync(quotesPath, 'utf8'))
+} catch (_) {
+  // fallback ke dataset minimal jika file tidak ada
+  quotesData = [
+    { text: 'Jangan tunggu sempurna, mulai dulu.', author: 'Pepatah', tag: 'id' },
+    { text: 'Pohon yang paling kuat tumbuh di tengah badai.', author: 'Zen', tag: 'jp' },
+    { text: 'The secret of getting ahead is getting started.', author: 'Mark Twain', tag: 'en' },
+  ]
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Todo persistence
+// ─────────────────────────────────────────────────────────────────────────────
+
+const TODO_PATH = path.join(__dirname, '../data/todos.json')
+
+function loadTodos() {
+  try {
+    return JSON.parse(fs.readFileSync(TODO_PATH, 'utf8'))
+  } catch (_) {
+    return {}
+  }
+}
+
+function saveTodos(data) {
+  try {
+    const dir = path.dirname(TODO_PATH)
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+    fs.writeFileSync(TODO_PATH, JSON.stringify(data, null, 2), 'utf8')
+  } catch (_) { /* abaikan error tulis */ }
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // State (in-memory, di-reset setiap restart bot)
@@ -17,27 +59,12 @@ const guessMap = new Map()
 const pollMap = new Map()
 let pollCounter = 0
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Kutipan motivasi (static, tidak butuh API)
-// ─────────────────────────────────────────────────────────────────────────────
-
-const quotes = [
-  '"Jangan tunggu sempurna, mulai dulu." — anon',
-  '"Kegagalan bukan akhir, tapi bagian dari perjalanan." — anon',
-  '"Setiap hari adalah kesempatan baru untuk menjadi lebih baik." — anon',
-  '"Sukses dimulai dari keberanian untuk mencoba." — anon',
-  '"Jika lelah, istirahat — bukan menyerah." — anon',
-  '"Satu langkah kecil tetap lebih baik dari satu langkah tidak sama sekali." — anon',
-  '"Mimpi yang besar dimulai dari langkah yang sederhana." — anon',
-  '"Bukan seberapa keras kamu jatuh, tapi seberapa cepat kamu bangkit." — anon',
-  '"Bersabarlah — hal baik butuh waktu." — anon',
-  '"Dirimu lebih kuat dari yang kamu kira." — anon',
-  '"Do what you can, with what you have, where you are." — Theodore Roosevelt',
-  '"The secret of getting ahead is getting started." — Mark Twain',
-  '"It always seems impossible until it\'s done." — Nelson Mandela',
-  '"In the middle of every difficulty lies opportunity." — Albert Einstein',
-  '"Success is not final, failure is not fatal: It is the courage to continue that counts." — Winston Churchill',
-]
+/**
+ * Remind registry: Map<remindId, { id, jid, msg, text, ms, createdAt, timeout }>
+ * Diakses untuk .remindlist dan .remindcancel
+ */
+const remindMap = new Map()
+let remindCounter = 0
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helper
@@ -146,7 +173,7 @@ async function tebakangka({ msg, jid, args, reply }) {
 
   if (game.tries >= 7) {
     guessMap.delete(key)
-    return reply(`😭 Kesempatan habis! Angkanya adalah *${game.number}*. Coba lagi dengan `.tebakangka`.`)
+    return reply(`😭 Kesempatan habis! Angkanya adalah *${game.number}*. Coba lagi dengan \`.tebakangka\`.`)
   }
 
   const hint = input < game.number ? '📈 Terlalu kecil!' : '📉 Terlalu besar!'
@@ -154,12 +181,33 @@ async function tebakangka({ msg, jid, args, reply }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Command: .quote  (kutipan motivasi acak)
+// Command: .quote  (kutipan motivasi)
+// Sintaks: .quote [jp|id|en|<kata-kunci>]
 // ─────────────────────────────────────────────────────────────────────────────
 
-async function quote({ reply }) {
-  const q = quotes[randomInt(0, quotes.length - 1)]
-  await reply(`💬 ${q}`)
+async function quote({ args, reply }) {
+  const filter = args[0]?.toLowerCase()
+
+  let pool = quotesData
+  if (filter === 'jp') {
+    pool = quotesData.filter((q) => q.tag === 'jp')
+  } else if (filter === 'id') {
+    pool = quotesData.filter((q) => q.tag === 'id')
+  } else if (filter === 'en') {
+    pool = quotesData.filter((q) => q.tag === 'en')
+  } else if (filter) {
+    // Cari berdasarkan kata kunci di text atau author
+    const kw = filter
+    pool = quotesData.filter(
+      (q) => q.text.toLowerCase().includes(kw) || q.author.toLowerCase().includes(kw)
+    )
+    if (pool.length === 0) {
+      return reply(`❓ Tidak ada quote dengan kata kunci "*${args[0]}*".\nFilter yang tersedia: \`jp\`, \`id\`, \`en\``)
+    }
+  }
+
+  const q = pool[randomInt(0, pool.length - 1)]
+  await reply(`💬 *"${q.text}"*\n\n— _${q.author}_`)
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -254,7 +302,7 @@ async function pollresult({ jid, args, reply }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Command: .remind  (pengingat sederhana)
+// Command: .remind  (pengingat dengan ID agar bisa di-list/cancel)
 // Sintaks: .remind <waktu> <pesan>
 // Contoh : .remind 10m Minum obat
 //          .remind 30s Balik ke meja
@@ -280,21 +328,160 @@ async function remind({ sock, jid, msg, args, reply }) {
   if (!ms) {
     return reply('❓ Format: `.remind <waktu> <pesan>`\nContoh: `.remind 10m Minum obat`\nSatuan: `s` (detik), `m` (menit), `h` (jam)')
   }
-  if (ms > 3 * 3600 * 1000) {
-    return reply('❌ Maksimal pengingat 3 jam (3h).')
+  if (ms > 24 * 3600 * 1000) {
+    return reply('❌ Maksimal pengingat 24 jam (24h).')
   }
   if (!text) {
     return reply('❓ Masukkan pesan pengingat. Contoh: `.remind 5m Balik ke meja`')
   }
 
+  remindCounter++
+  const id = remindCounter
   const label = formatDuration(ms)
-  await reply(`⏰ Oke! Aku akan ingatkan kamu dalam *${label}*:\n"${text}"`)
+  const createdAt = Date.now()
+
+  const timeoutHandle = setTimeout(async () => {
+    remindMap.delete(id)
+    try {
+      await sock.sendMessage(jid, { text: `⏰ *Pengingat #${id}!*\n\n${text}` }, { quoted: msg })
+    } catch (_) { /* abaikan jika gagal kirim */ }
+  }, ms)
+
+  remindMap.set(id, { id, jid, text, ms, createdAt, timeoutHandle })
+
+  await reply(`⏰ Pengingat *#${id}* diset!\nKamu akan diingatkan dalam *${label}*:\n"${text}"\n\nKetik \`.remindlist\` untuk lihat semua pengingat aktif.`)
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Command: .remindlist  (tampilkan pengingat aktif)
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function remindlist({ reply }) {
+  if (remindMap.size === 0) {
+    return reply('ℹ️ Tidak ada pengingat aktif saat ini.')
+  }
+
+  const lines = ['⏰ *Pengingat Aktif:*\n']
+  for (const { id, text, ms, createdAt } of remindMap.values()) {
+    const elapsed = Date.now() - createdAt
+    const remaining = Math.max(0, ms - elapsed)
+    lines.push(`*#${id}* — "${text}"\n  Tersisa: ${formatDuration(remaining)}`)
+  }
+  lines.push(`\nKetik \`.remindcancel <id>\` untuk membatalkan.`)
+  await reply(lines.join('\n'))
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Command: .remindcancel <id>  (batalkan pengingat)
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function remindcancel({ args, reply }) {
+  const id = parseInt(args[0])
+  if (isNaN(id)) {
+    return reply('❓ Format: `.remindcancel <id>`\nContoh: `.remindcancel 3`')
+  }
+
+  if (!remindMap.has(id)) {
+    return reply(`❓ Pengingat *#${id}* tidak ditemukan atau sudah selesai.`)
+  }
+
+  const { timeoutHandle, text } = remindMap.get(id)
+  clearTimeout(timeoutHandle)
+  remindMap.delete(id)
+
+  await reply(`✅ Pengingat *#${id}* ("${text}") telah dibatalkan.`)
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Command: .timer <detik>  (hitung mundur sederhana)
+// Contoh : .timer 30
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function timer({ sock, jid, msg, args, reply }) {
+  const sec = parseInt(args[0])
+  if (isNaN(sec) || sec < 1) {
+    return reply('❓ Format: `.timer <detik>`\nContoh: `.timer 30`\nMaksimal 3600 detik (1 jam).')
+  }
+  if (sec > 3600) {
+    return reply('❌ Maksimal timer 3600 detik (1 jam).')
+  }
+
+  await reply(`⏱️ Timer *${sec} detik* dimulai!`)
 
   setTimeout(async () => {
     try {
-      await sock.sendMessage(jid, { text: `⏰ *Pengingat!*\n\n${text}` }, { quoted: msg })
+      await sock.sendMessage(jid, { text: `🔔 *Timer selesai!* (${sec} detik)` }, { quoted: msg })
     } catch (_) { /* abaikan jika gagal kirim */ }
-  }, ms)
+  }, sec * 1000)
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Command: .todo  (to-do list per user, disimpan ke disk)
+// Sintaks:
+//   .todo add <teks>       — tambah item
+//   .todo list             — tampilkan semua item
+//   .todo done <id>        — tandai selesai
+//   .todo del <id>         — hapus item
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function todo({ msg, args, reply }) {
+  const sender = getSenderJid(msg)
+  const [sub, ...rest] = args
+  const subCmd = sub?.toLowerCase()
+
+  const todos = loadTodos()
+  if (!todos[sender]) todos[sender] = []
+  const userTodos = todos[sender]
+
+  if (subCmd === 'add') {
+    const text = rest.join(' ').trim()
+    if (!text) return reply('❓ Format: `.todo add <teks>`')
+    const id = userTodos.length > 0 ? userTodos.reduce((max, t) => t.id > max ? t.id : max, 0) + 1 : 1
+    userTodos.push({ id, text, done: false, createdAt: new Date().toISOString() })
+    todos[sender] = userTodos
+    saveTodos(todos)
+    return reply(`✅ Todo *#${id}* ditambahkan:\n"${text}"`)
+  }
+
+  if (subCmd === 'list') {
+    if (userTodos.length === 0) return reply('📋 To-do list kamu kosong.\nTambah dengan `.todo add <teks>`')
+    const lines = ['📋 *To-Do List kamu:*\n']
+    for (const t of userTodos) {
+      const icon = t.done ? '✅' : '⬜'
+      lines.push(`${icon} *#${t.id}* ${t.done ? '~' + t.text + '~' : t.text}`)
+    }
+    lines.push('\n`.todo done <id>` — tandai selesai | `.todo del <id>` — hapus')
+    return reply(lines.join('\n'))
+  }
+
+  if (subCmd === 'done') {
+    const id = parseInt(rest[0])
+    if (isNaN(id)) return reply('❓ Format: `.todo done <id>`')
+    const item = userTodos.find((t) => t.id === id)
+    if (!item) return reply(`❓ Todo *#${id}* tidak ditemukan.`)
+    if (item.done) return reply(`ℹ️ Todo *#${id}* sudah ditandai selesai.`)
+    item.done = true
+    saveTodos(todos)
+    return reply(`✅ Todo *#${id}* ditandai selesai: "${item.text}"`)
+  }
+
+  if (subCmd === 'del') {
+    const id = parseInt(rest[0])
+    if (isNaN(id)) return reply('❓ Format: `.todo del <id>`')
+    const idx = userTodos.findIndex((t) => t.id === id)
+    if (idx === -1) return reply(`❓ Todo *#${id}* tidak ditemukan.`)
+    const [removed] = userTodos.splice(idx, 1)
+    saveTodos(todos)
+    return reply(`🗑️ Todo *#${id}* dihapus: "${removed.text}"`)
+  }
+
+  await reply(
+    '📋 *Perintah .todo:*\n\n' +
+    '  `.todo add <teks>` — tambah item baru\n' +
+    '  `.todo list`        — tampilkan semua item\n' +
+    '  `.todo done <id>`   — tandai item selesai\n' +
+    '  `.todo del <id>`    — hapus item'
+  )
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -311,6 +498,10 @@ module.exports = {
   vote,
   pollresult,
   remind,
+  remindlist,
+  remindcancel,
+  timer,
+  todo,
 }
 
 // Ekspor internal untuk handler (bukan command pengguna)

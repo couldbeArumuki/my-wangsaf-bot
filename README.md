@@ -19,17 +19,21 @@ Bot WhatsApp gratis berbasis [Baileys](https://github.com/WhiskeySockets/Baileys
 | | `.demote` | Cabut status admin member |
 | ⬇️ Downloader | `.tiktok <url>` | Download video TikTok tanpa watermark |
 | | `.ytmp3 <url>` | Download audio YouTube (via yt-dlp) |
-| | `.ytmp4 <url>` | Download video YouTube (via yt-dlp) |
+| | `.ytmp4 <url>` | Download video YouTube (WhatsApp-compatible, via yt-dlp + ffmpeg) |
 | 🖼 Sticker | `.sticker` | Buat sticker dari gambar/video (reply) |
 | | `.toimg` | Konversi sticker ke gambar (reply) |
 | 🔊 Text Tools | `.tts <teks>` | Text-to-speech (voice note) |
 | | `.say <teks>` | Text-to-speech (audio biasa) |
 | 🎮 Mini Games | `.suit <batu/gunting/kertas>` | Batu-gunting-kertas vs bot |
 | | `.tebakangka [angka]` | Tebak angka 1–100 (7 percobaan) |
-| 💬 Interaktif | `.quote` | Kutipan motivasi acak |
+| 💬 Interaktif | `.quote [jp\|id\|en]` | Kutipan motivasi acak (393+ quote, dominan Jepang) |
 | | `.afk [alasan]` | Set status AFK (otomatis cancel kalau kirim pesan) |
 | | `.unafk` | Batalkan AFK secara manual |
 | | `.remind <waktu> <pesan>` | Pengingat (contoh: `.remind 10m Minum obat`) |
+| | `.remindlist` | Tampilkan semua pengingat aktif |
+| | `.remindcancel <id>` | Batalkan pengingat berdasarkan ID |
+| | `.timer <detik>` | Hitung mundur (contoh: `.timer 30`) |
+| | `.todo add\|list\|done\|del` | To-do list personal (tersimpan di disk) |
 | 📊 Poll | `.poll <pertanyaan> \| opsi1 \| opsi2` | Buat polling di grup |
 | | `.vote <id> <nomor>` | Vote di polling aktif |
 | | `.pollresult <id>` | Lihat hasil polling |
@@ -40,7 +44,8 @@ Bot WhatsApp gratis berbasis [Baileys](https://github.com/WhiskeySockets/Baileys
 
 ### 1. Prasyarat
 - Node.js v18 atau lebih baru → [nodejs.org](https://nodejs.org)
-- (Opsional, untuk fitur sticker video) `ffmpeg` terinstall di sistem
+- **yt-dlp** — wajib untuk `.ytmp3`, `.ytmp4` → [panduan di bawah](#youtube-ytmp3ytmp4)
+- **ffmpeg** — wajib untuk `.ytmp4` (transcode), `.sticker` (video) → [panduan di bawah](#ffmpeg)
 
 ### 2. Clone & Install
 ```bash
@@ -60,6 +65,10 @@ OWNER_NUMBER=6281234567890   # Nomor WhatsApp owner (format internasional, tanpa
 BOT_NAME=WangsafBot
 PREFIX=.
 SESSION_NAME=my-wangsaf-bot
+
+# Path ke yt-dlp dan ffmpeg (jika tidak ada di PATH)
+YTDLP_PATH=yt-dlp
+FFMPEG_PATH=ffmpeg
 ```
 
 ### 4. Jalankan Bot
@@ -95,17 +104,21 @@ my-wangsaf-bot/
 │   ├── handler.js        # Command router / handler
 │   ├── lib/
 │   │   └── utils.js      # Utility functions
+│   ├── data/
+│   │   ├── quotes.json   # Dataset quote 393+ entri (jp/id/en)
+│   │   └── todos.json    # Data to-do list (auto-generated)
 │   └── plugins/
 │       ├── utility.js    # ping, runtime, owner, menu
 │       ├── group.js      # tagall, kick, add, promote, demote
-│       ├── downloader.js # tiktok, ytmp3, ytmp4 (via yt-dlp)
+│       ├── downloader.js # tiktok, ytmp3, ytmp4 (via yt-dlp + ffmpeg)
 │       ├── sticker.js    # sticker, toimg
 │       ├── texttools.js  # tts, say
-│       └── interactive.js# suit, tebakangka, quote, afk, poll, remind
+│       └── interactive.js# suit, tebakangka, quote, afk, poll, remind, timer, todo
 ├── auth_info/            # Session files (diabaikan Git)
 ├── config.js             # Konfigurasi global
 ├── .env                  # Environment variables (tidak ter-commit)
 ├── .env.example          # Template .env
+├── SOURCES.md            # Atribusi dataset quote
 └── package.json
 ```
 
@@ -156,21 +169,51 @@ brew install yt-dlp     # Mac
 sudo apt install yt-dlp # Ubuntu/Debian
 ```
 
-**Update yt-dlp** (lakukan berkala agar tidak patah karena update YouTube):
+#### ffmpeg
+
+ffmpeg **wajib ada** untuk:
+- `.ytmp4` — transcode video ke format yang bisa diputar di WhatsApp
+- `.sticker` dari video
+
+**Windows:**
+```powershell
+winget install Gyan.FFmpeg
+```
+atau unduh dari https://ffmpeg.org/download.html, extract, lalu set path di `.env`:
+```env
+FFMPEG_PATH=C:\ffmpeg\bin\ffmpeg.exe
+```
+
+> **Tip Windows:** Kalau ffmpeg ada di `C:\Users\...\WinGet\Links\ffmpeg.exe`, set `FFMPEG_PATH` ke path tersebut agar bot selalu menemukannya meskipun PATH berbeda.
+
+**Linux / Mac:**
 ```bash
-yt-dlp -U          # Linux/Mac
-# Windows: unduh ulang yt-dlp.exe dari halaman releases
+sudo apt install ffmpeg  # Ubuntu/Debian
+brew install ffmpeg      # Mac
 ```
 
 #### Konfigurasi di `.env`
 ```env
 YTDLP_PATH=yt-dlp          # path ke binary (default: 'yt-dlp' di PATH)
+FFMPEG_PATH=ffmpeg          # path ke binary ffmpeg (default: 'ffmpeg' di PATH)
 TIKTOK_TIMEOUT=20000       # timeout request ke tikwm.com (ms)
 DOWNLOAD_TIMEOUT=120000    # timeout proses download yt-dlp (ms)
+
+# Opsi transcode ytmp4
+YTMP4_TRANSCODE=1          # 1=aktif (default), 0=nonaktif
+YTMP4_MAX_HEIGHT=720       # tinggi maksimal output (default: 720)
+YTMP4_CRF=28               # kualitas H.264 (18=bagus, 28=default, 35=kecil)
+
+# Debug
+DEBUG_DOWNLOAD=0           # 1=log detail download & transcode
 ```
 
 ### TTS (.tts / .say)
 Menggunakan Google Translate TTS (tidak resmi). Bisa berubah kapan saja. Batas 200 karakter.
+
+### Quote (.quote)
+Dataset lokal 393+ kutipan, dominan filosofi Jepang. Filter: `.quote jp`, `.quote id`, `.quote en`.
+Lihat [SOURCES.md](./SOURCES.md) untuk informasi atribusi lengkap.
 
 ---
 
@@ -222,7 +265,10 @@ pm2 startup
 | `yt-dlp error: ...` | Update yt-dlp ke versi terbaru (`yt-dlp -U`). YouTube sering ubah format yang membutuhkan versi terbaru. |
 | `TikTok download gagal` | Coba lagi — tikwm.com kadang rate-limit. Bot akan fallback ke yt-dlp otomatis. Pastikan yt-dlp terinstall. |
 | `YouTube MP3/MP4 gagal` (video pribadi/umur) | Video yang di-private, dibatasi umur, atau berisi DRM tidak bisa diunduh. |
-| File terlalu besar, tidak terkirim | WhatsApp punya batas ~64 MB per media. Untuk video panjang, coba `.ytmp3` saja. |
+| `.ytmp4` video tidak bisa diputar di WhatsApp | Pastikan `ffmpeg` terinstall dan `FFMPEG_PATH` diset di `.env`. Set `YTMP4_TRANSCODE=1`. |
+| `.ytmp4` ffmpeg tidak ditemukan | Set `FFMPEG_PATH` di `.env` ke path lengkap ffmpeg.exe (lihat bagian ffmpeg di atas). |
+| File terlalu besar, tidak terkirim | WhatsApp punya batas ~64 MB per media. Bot akan menampilkan error jika file melebihi batas. Coba `.ytmp3` atau set `YTMP4_MAX_HEIGHT=480`. |
+| `.sticker` dari video gagal | Pastikan `FFMPEG_PATH` diset dengan benar di `.env`. |
 
 ---
 
