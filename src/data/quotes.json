@@ -1,397 +1,1967 @@
 [
-  {"text": "Jangan menunggu sempurna untuk mulai; kesempurnaan datang dari terus melakukan.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Pohon yang paling kuat bukan yang selalu terlindung dari badai, tetapi yang telah belajar tumbuh di tengahnya.", "author": "Zen", "tag": "jp"},
-  {"text": "Pikiran yang tenang lebih tajam dari pedang terbaik.", "author": "Bushido", "tag": "jp"},
-  {"text": "Seorang pejuang sejati tidak mencari perkelahian; ia mencari kedamaian dengan siap menghadapi segalanya.", "author": "Bushido", "tag": "jp"},
-  {"text": "Bunga sakura mengajarkan kita: keindahan terbesar ada di momen yang singkat.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Ketahui dirimu sendiri, kenali musuhmu, maka seribu pertempuran takkan membuatmu kalah.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Air mengalir melewati batu bukan karena kekuatan, tetapi karena ketekunan.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Tidak ada jalan menuju keahlian selain melalui ribuan jam latihan.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Jadilah seperti bambu: lentur tapi tak mudah patah.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Diam adalah jawaban terkuat untuk orang yang tidak mau mendengar.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Seorang pejuang hanya berjuang untuk sesuatu yang layak diperjuangkan.", "author": "Bushido", "tag": "jp"},
-  {"text": "Matahari terbit tidak meminta izin untuk bersinar.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Hidup itu seperti cermin; berikan senyum dan ia akan memantulkan senyum balik.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Kemenangan sejati bukan mengalahkan orang lain, melainkan mengalahkan diri sendiri.", "author": "Bushido", "tag": "jp"},
-  {"text": "Sebuah kata yang diucapkan dengan tulus mampu mengubah hidup seseorang.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Musim gugur mengingatkan kita bahwa melepaskan pun bisa menjadi keindahan.", "author": "Haiku Jepang", "tag": "jp"},
-  {"text": "Hanya ketika pikiran kosong, kreativitas sejati bisa hadir.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Satu langkah dalam arah yang benar lebih berharga dari seribu langkah yang terburu-buru.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Persiapan adalah kehormatan; kecerobohan adalah penghinaan terhadap diri sendiri.", "author": "Bushido", "tag": "jp"},
-  {"text": "Angin kencang tidak bisa mematahkan pohon yang akarnya kuat.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Jadikan setiap hari sebagai karya terbaik hidupmu.", "author": "Filosofi Zen", "tag": "jp"},
-  {"text": "Rasa syukur membuka pintu kelimpahan yang tidak bisa dibuka oleh kekayaan.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Tidak ada keberhasilan tanpa kegagalan yang dipelajari.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Seorang bijak berbicara karena memiliki sesuatu untuk dikatakan; orang bodoh berbicara karena harus mengatakan sesuatu.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Saat kau tidak bisa mengubah angin, aturlah layarmu.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Keberanian sejati bukan absennya rasa takut, melainkan melangkah meskipun takut.", "author": "Bushido", "tag": "jp"},
-  {"text": "Kesederhanaan adalah kemewahan tertinggi.", "author": "Estetika Jepang (Wabi-sabi)", "tag": "jp"},
-  {"text": "Bahkan bulan pun memiliki sisi gelap; demikian juga manusia sempurna.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Bukan seberapa jauh kamu berlari, tapi seberapa konsisten langkahmu.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Cahaya lilin kecil sekalipun mampu mengusir kegelapan di ruangan besar.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Yang membedakan ahli dari pemula adalah ketahanan dalam mengulang.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Jangan pernah menghina kesederhanaan; di situlah kejujuran tinggal.", "author": "Zen", "tag": "jp"},
-  {"text": "Hidup bukan tentang menghindari badai, tetapi belajar menari di bawah hujan.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Seorang samurai tanpa tuan tetaplah samurai karena integritasnya.", "author": "Bushido", "tag": "jp"},
-  {"text": "Waktu tidak menunggu siapapun; manfaatkan setiap detiknya.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Biji kecil pun bisa tumbuh menjadi pohon raksasa jika diberi tanah yang baik.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Keheningan sering menyampaikan lebih banyak dari kata-kata.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Mereka yang tahu banyak tidak selalu berkata-kata; mereka yang banyak berkata belum tentu tahu.", "author": "Filosofi Zen", "tag": "jp"},
-  {"text": "Setiap akhir adalah awal dari sesuatu yang baru.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Hanya dengan mengenal batas diri kita bisa melampaui batas tersebut.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Orang yang telah melewati kegelapan menghargai cahaya lebih dari siapapun.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Latihan membuat pergerakan menjadi alami; kealamian membuat gerakan menjadi seni.", "author": "Filosofi Budo", "tag": "jp"},
-  {"text": "Impian terbesar sekalipun dimulai dari langkah pertama yang kecil.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Tindakan berbicara lebih keras dari janji.", "author": "Bushido", "tag": "jp"},
-  {"text": "Satu kesalahan yang dipelajari lebih berharga dari seribu keberhasilan tanpa refleksi.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Masa lalu tidak bisa diubah; masa depan belum terjadi; hanya sekarang yang bisa dikuasai.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Keteguhan hati adalah modal terbesar yang bisa dimiliki seseorang.", "author": "Bushido", "tag": "jp"},
-  {"text": "Jika kamu tidak bisa menemukan ketenangan di dalam dirimu, carilah ke mana pun kamu mau—kamu tak akan menemukannya.", "author": "Zen", "tag": "jp"},
-  {"text": "Kesabaran adalah pedang yang tidak pernah tumpul.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Musuh terbesar seorang pejuang bukanlah lawan di hadapannya, melainkan keraguan dalam dirinya.", "author": "Bushido", "tag": "jp"},
-  {"text": "Pohon tumbuh dari akar yang tak terlihat; demikian juga karakter tumbuh dari kebiasaan yang tak disadari.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Seni tertinggi adalah mengubah yang biasa menjadi luar biasa.", "author": "Estetika Jepang", "tag": "jp"},
-  {"text": "Seperti air yang mengisi wadah apapun, jadilah fleksibel dalam pendekatan namun teguh dalam tujuan.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Menang tanpa hormat adalah menang yang sia-sia.", "author": "Bushido", "tag": "jp"},
-  {"text": "Setiap orang memiliki bintang di dalam dirinya; tugasnya adalah menemukannya.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Kegagalan hanya berarti kamu belum selesai mencoba.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Hidup terlalu singkat untuk diisi dengan kepahitan.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Seorang pejuang memilih pertempurannya dengan bijaksana; bukan setiap tantangan layak dilawan.", "author": "Bushido", "tag": "jp"},
-  {"text": "Niat yang tulus adalah setengah dari keberhasilan.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Bunga tidak bersaing dengan bunga di sebelahnya; ia hanya mekar.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Rasa hormat tidak datang dari kekuatan fisik, melainkan dari integritas karakter.", "author": "Bushido", "tag": "jp"},
-  {"text": "Keindahan sejati tidak butuh ornamen.", "author": "Wabi-sabi Jepang", "tag": "jp"},
-  {"text": "Ketika murid siap, guru akan muncul.", "author": "Pepatah Zen", "tag": "jp"},
-  {"text": "Keberanian tanpa hikmat adalah kebodohan; hikmat tanpa keberanian adalah kesia-siaan.", "author": "Bushido", "tag": "jp"},
-  {"text": "Jalan seribu mil dimulai dari satu langkah di bawah kakimu.", "author": "Filosofi Asia Timur", "tag": "jp"},
-  {"text": "Seperti angin yang tak bisa digenggam, demikian pula waktu yang terlewat.", "author": "Haiku Jepang", "tag": "jp"},
-  {"text": "Orang yang paling tangguh bukan yang tidak pernah jatuh, melainkan yang selalu bangkit.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Tekad bulat adalah kunci semua pencapaian besar.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Pikiran yang fokus mampu memindahkan gunung.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Dalam kesederhanaan, temukan keagungan.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Tidak ada yang sia-sia selama kamu belajar darinya.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Jiwa yang tenang mampu menanggung beban yang besar.", "author": "Bushido", "tag": "jp"},
-  {"text": "Waktu yang diinvestasikan untuk belajar tidak pernah terbuang.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Kelemahan yang diakui adalah kekuatan yang menunggu untuk bertumbuh.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Setiap detik yang berlalu adalah kesempatan untuk menjadi lebih baik.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Jangan biarkan kemarahan mengambil alih kebijaksanaanmu.", "author": "Bushido", "tag": "jp"},
-  {"text": "Dalam keheningan malam, pikiran yang paling dalam berbicara.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Hidup adalah pameran singkat; tampilkan karya terbaikmu.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Yang sejati tidak membutuhkan pembuktian.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Pepatah lama: jatuh tujuh kali, bangkit delapan.", "author": "Pepatah Jepang (Nana korobi ya oki)", "tag": "jp"},
-  {"text": "Seorang prajurit sejati tidak pernah meninggalkan medan perang tanpa kehormatan.", "author": "Bushido", "tag": "jp"},
-  {"text": "Kesenangan dalam pekerjaan menjadikan pekerjaan itu sempurna.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Hanya mereka yang berani mengambil risiko yang akan merasakan buah kemenangan.", "author": "Bushido", "tag": "jp"},
-  {"text": "Alam mengajarkan kita: setelah musim dingin, selalu ada musim semi.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Orang yang menguasai dirinya sendiri lebih kuat dari yang menguasai kota.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Bertindak dengan penuh perhatian adalah bentuk penghormatan tertinggi.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Pikiran yang tidak terlatih adalah musuh terbesarmu.", "author": "Filosofi Budo", "tag": "jp"},
-  {"text": "Setiap keputusan membawa konsekuensi; pilihlah dengan bijak.", "author": "Bushido", "tag": "jp"},
-  {"text": "Keahlian bukan milik orang berbakat, melainkan milik orang yang tekun.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Dari matahari terbit kita belajar: awal baru selalu mungkin.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Senyum kecil mampu membuka pintu yang tertutup rapat.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Hiduplah sepenuhnya di saat ini; masa lalu adalah kenangan, masa depan adalah harapan.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Seorang seniman sejati tidak berhenti belajar meski telah mahir.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Kepercayaan adalah fondasi semua hubungan yang tulus.", "author": "Bushido", "tag": "jp"},
-  {"text": "Takut adalah ilusi; keberanian adalah pilihan.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Bulan tidak peduli siapa yang memandangnya; ia tetap bersinar.", "author": "Haiku Jepang", "tag": "jp"},
-  {"text": "Kebaikan yang diberikan dengan tulus akan kembali berlipat ganda.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Kesulitan hari ini adalah kekuatan esok hari.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Hidup bukan tentang menemukan diri sendiri; hidup adalah tentang menciptakan diri sendiri.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Disiplin diri adalah bentuk cinta tertinggi kepada masa depanmu.", "author": "Bushido", "tag": "jp"},
-  {"text": "Setiap maestro pernah menjadi pemula.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Musim bunga tidak bertanya apakah ia boleh mekar; ia mekar.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Lebih baik melakukan sesuatu dengan tidak sempurna daripada tidak melakukan sama sekali.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Jika hatimu tenang, seisi dunia pun akan terasa damai.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Kehormatan adalah mahkota yang tidak bisa direnggut dari dalam.", "author": "Bushido", "tag": "jp"},
-  {"text": "Dalam melakukan hal kecil dengan sempurna, kita belajar melakukan hal besar.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Orang bijak belajar dari pengalaman orang lain; orang cerdas belajar dari pengalamannya sendiri; orang bodoh tidak belajar dari keduanya.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Sebuah karya besar lahir dari ribuan percobaan kecil.", "author": "Filosofi Seni Jepang", "tag": "jp"},
-  {"text": "Jadilah yang pertama tiba dan yang terakhir meninggalkan medan; itulah semangat pejuang.", "author": "Bushido", "tag": "jp"},
-  {"text": "Sungai tidak pernah berhenti mengalir; demikian semangat yang sejati.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Ketika kamu tidak bisa melanjutkan, ingat mengapa kamu memulai.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Keberhasilan sejati bukan diukur dari apa yang kamu miliki, melainkan dari siapa kamu.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Belajar tanpa berpikir adalah membuang waktu; berpikir tanpa belajar adalah berbahaya.", "author": "Filosofi Asia Timur", "tag": "jp"},
-  {"text": "Harmoni adalah seni hidup paling indah.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Seorang yang takut gagal tidak akan pernah tahu seberapa jauh ia bisa melangkah.", "author": "Bushido", "tag": "jp"},
-  {"text": "Tanpa tujuan yang jelas, setiap arah adalah salah.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Keindahan ada dalam ketidaksempurnaan yang diterima dengan lapang.", "author": "Wabi-sabi Jepang", "tag": "jp"},
-  {"text": "Pikiranmu adalah tamanmu; jaga apa yang kamu tanam di sana.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Seorang pejuang tidak bersembunyi dari kenyataan; ia menghadapinya.", "author": "Bushido", "tag": "jp"},
-  {"text": "Dalam kedamaian, persiapkan diri untuk perang; dalam perang, jaga kedamaian batin.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Tanda kebijaksanaan adalah mengetahui kapan harus berbicara dan kapan harus diam.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Bunga yang indah tidak tumbuh di tanah yang mudah.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Kemenangan terbesar adalah yang dicapai dengan cara yang bermartabat.", "author": "Bushido", "tag": "jp"},
-  {"text": "Hidup yang dijalani dengan penuh kesadaran adalah hidup yang sejati.", "author": "Filosofi Zen", "tag": "jp"},
-  {"text": "Ketika semua orang berlari, berhentilah dan bertanya: ke mana tujuan kita?", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Tangan yang memberi selalu lebih bahagia dari tangan yang menerima.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Jadilah lentur seperti angin, namun teguh seperti gunung.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Kepuasan sejati datang dari perjalanan, bukan hanya dari tujuan.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Latihan keras hari ini adalah kemenangan mudah esok hari.", "author": "Bushido", "tag": "jp"},
-  {"text": "Di balik setiap kesulitan tersimpan benih peluang.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Seorang seniman melihat bukan apa yang ada, tetapi apa yang mungkin ada.", "author": "Filosofi Seni Jepang", "tag": "jp"},
-  {"text": "Kebijaksanaan datang bukan dari usia, melainkan dari pengalaman yang direnungkan.", "author": "Filosofi Zen", "tag": "jp"},
-  {"text": "Sebuah gelas tidak berguna jika penuh; kosongkan dahulu untuk bisa diisi.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Teruslah bergerak meskipun jalannya tidak terlihat jelas.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Tidak ada angin yang bisa mematahkan pohon yang menari bersamanya.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Bukan beratnya beban yang menghancurkan, melainkan cara kamu membawanya.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Setiap hari adalah kesempatan baru untuk menjadi versi terbaik dirimu.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Ilmu yang tidak diamalkan adalah seperti pohon yang tidak berbuah.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Ketekunan mengalahkan kecerdasan; konsistensi mengalahkan bakat.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Senyum adalah bahasa yang dipahami oleh semua orang.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Kerendahan hati adalah tanah di mana kebijaksanaan tumbuh.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Bertempurlah seperti ini adalah pertempuran terakhirmu; hiduplah seperti kamu hidup selamanya.", "author": "Bushido", "tag": "jp"},
-  {"text": "Jangan membandingkan perjalananmu dengan orang lain; setiap jalan berbeda.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Ketenangan pikiran adalah harta yang paling sulit didapat dan paling berharga.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Setiap batu yang menghalangi jalan bisa menjadi batu pijakan.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Orang yang tidak pernah membuat kesalahan tidak pernah mencoba sesuatu yang baru.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Ketika hati dan pikiran selaras, tidak ada yang mustahil.", "author": "Bushido", "tag": "jp"},
-  {"text": "Cahaya yang paling terang sering kali menyembunyikan kegelapan yang paling dalam.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Semangat juang yang tidak padam adalah rahasia di balik semua pencapaian besar.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Keindahan alam bukan untuk dikuasai, melainkan untuk dinikmati dan dijaga.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Keberanian untuk berubah adalah awal dari semua pertumbuhan.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Saat kamu menyerah, ingat alasan mengapa kamu memulai.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Kesuksesan tidak datang dalam semalam; ia dibangun dari konsistensi selama bertahun-tahun.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Pilihan kecil yang dibuat setiap hari membentuk nasibmu.", "author": "Bushido", "tag": "jp"},
-  {"text": "Tidak ada beban yang terlalu berat jika dibagi dengan hati yang ikhlas.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Percayalah pada prosesnya; buah kesabaran selalu manis.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Tindakan kecil yang dilakukan dengan cinta mengubah dunia.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Seorang seniman besar tidak takut memulai ulang dari nol.", "author": "Filosofi Seni Jepang", "tag": "jp"},
-  {"text": "Hati yang penuh kebaikan tidak perlu membuktikan diri kepada siapapun.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Gelombang tidak berhenti karena badai; ia menjadi lebih kuat.", "author": "Filosofi Laut Jepang", "tag": "jp"},
-  {"text": "Orang yang tahu batas kemampuannya, tahu pula bagaimana melampaui batas itu.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Apa yang tidak membunuhmu, membuatmu lebih kuat — jika kamu mau belajar.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Pikiran yang lemah menyerah pada keadaan; pikiran yang kuat menciptakan keadaan.", "author": "Bushido", "tag": "jp"},
-  {"text": "Setiap perpisahan membuka ruang untuk pertemuan yang lebih bermakna.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Kepedulian kepada sesama adalah tanda jiwa yang benar-benar kaya.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Yang paling sulit bukan mencapai puncak, melainkan mempertahankan kerendahan hati setelah sampai.", "author": "Filosofi Samurai", "tag": "jp"},
-  {"text": "Kuasai tekniknya, lalu lupakan; biarkan jiwamu yang bergerak.", "author": "Filosofi Seni Bela Diri Jepang", "tag": "jp"},
-  {"text": "Di mana ada keberanian, di situ ada jalan.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Rasa syukur adalah fondasi kebahagiaan yang paling kokoh.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Tidak ada waktu yang salah untuk melakukan hal yang benar.", "author": "Bushido", "tag": "jp"},
-  {"text": "Setiap latihan adalah investasi yang tidak bisa dicuri oleh siapapun.", "author": "Filosofi Budo Jepang", "tag": "jp"},
-  {"text": "Orang bijak tidak pernah tergesa-gesa, namun selalu tepat waktu.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Dalam keterbatasan, temukan kreativitas tertinggi.", "author": "Filosofi Seni Jepang", "tag": "jp"},
-  {"text": "Bukan musuh di luar yang paling berbahaya, melainkan musuh di dalam diri.", "author": "Bushido", "tag": "jp"},
-  {"text": "Setiap benih perubahan ditanam dalam hati sebelum tumbuh di dunia.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Pikiran dan tubuh harus dilatih bersamaan untuk mencapai keselarasan sejati.", "author": "Filosofi Budo", "tag": "jp"},
-  {"text": "Keberhasilan bukan milik orang yang paling pintar, melainkan milik orang yang paling gigih.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Ikigai: temukan persimpangan antara apa yang kamu sukai, apa yang kamu kuasai, apa yang dibutuhkan dunia, dan apa yang bisa menghidupkanmu.", "author": "Filosofi Jepang (Ikigai)", "tag": "jp"},
-  {"text": "Dalam Kaizen, tidak ada yang terlalu kecil untuk diperbaiki.", "author": "Filosofi Jepang (Kaizen)", "tag": "jp"},
-  {"text": "Perbaikan sedikit demi sedikit setiap hari menghasilkan perubahan besar dalam setahun.", "author": "Filosofi Kaizen", "tag": "jp"},
-  {"text": "Mono no aware: keindahan yang paling mendalam hadir dalam kefanaan.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Ganbatte: lakukanlah yang terbaik dan jangan pernah menyerah.", "author": "Semangat Jepang", "tag": "jp"},
-  {"text": "Shikata ga nai: ada hal yang tidak bisa diubah; terimalah dan lanjutkan.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Shokunin: jadilah ahli dalam bidangmu dengan dedikasi penuh jiwa.", "author": "Etos Kerja Jepang", "tag": "jp"},
-  {"text": "Musang yang lambat tidak tertangkap; demikian juga orang yang tidak gegabah.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Ketika pikiran murni, semua yang ada di hadapan menjadi pelajaran.", "author": "Zen Jepang", "tag": "jp"},
-  {"text": "Jadilah pejuang yang tidak bisa dikalahkan bukan karena tidak pernah diserang, tetapi karena tidak pernah menyerah.", "author": "Bushido", "tag": "jp"},
-  {"text": "Sakit adalah guru yang tidak berbicara; ia membuatmu merasakan sendiri pelajarannya.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Alam tidak terburu-buru, namun semua hal terjadi pada waktunya.", "author": "Filosofi Zen Jepang", "tag": "jp"},
-  {"text": "Yang terpenting bukan menjadi terbaik di antara orang lain, tetapi menjadi versi terbaik dirimu.", "author": "Filosofi Jepang", "tag": "jp"},
-  {"text": "Keberanian sejati dimulai dari keberanian untuk jujur pada diri sendiri.", "author": "Bushido", "tag": "jp"},
-  {"text": "Asa wa kinan: pagi hari adalah emas — jangan lewatkan permulaan yang baik.", "author": "Pepatah Jepang", "tag": "jp"},
-  {"text": "Perjalanan seribu mil dimulai dari satu nafas yang dalam dan tenang.", "author": "Zen Jepang", "tag": "jp"},
-
-  {"text": "Jangan tunggu sempurna, mulai dulu.", "author": "Pepatah Indonesia", "tag": "id"},
-  {"text": "Berakit-rakit ke hulu, berenang-renang ke tepian; bersakit-sakit dahulu, bersenang-senang kemudian.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Kegagalan bukan akhir segalanya; ia adalah batu bata untuk membangun tangga kesuksesan.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Satu bintang yang bersinar lebih baik dari seribu bintang yang tidak.", "author": "Pepatah Indonesia", "tag": "id"},
-  {"text": "Hidup bukan tentang seberapa keras kamu jatuh, tapi seberapa cepat kamu bangkit.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Tangan di atas lebih mulia dari tangan di bawah.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Sedikit demi sedikit, lama-lama menjadi bukit.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Habis gelap terbitlah terang.", "author": "R.A. Kartini", "tag": "id"},
-  {"text": "Gantungkan cita-citamu setinggi langit!", "author": "Ir. Soekarno", "tag": "id"},
-  {"text": "Kepulan asap menunjukkan adanya api; kerja keras menunjukkan adanya hasil.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Bermimpilah sebesar langit, berpijarlah bagi sesama.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Di mana ada kemauan, di situ ada jalan.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Bersatu kita teguh, bercerai kita runtuh.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Jika lelah, istirahat — tapi jangan berhenti.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Ilmu tanpa amal bagaikan pohon tanpa buah.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Sekali layar terkembang, pantang biduk surut ke pantai.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Yang besar bukan hanya yang menang, tapi yang berani mencoba.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Tak ada gading yang tak retak; tidak ada manusia yang sempurna.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Jadikan setiap tempat sebagai sekolah, dan setiap orang sebagai guru.", "author": "Ki Hajar Dewantara", "tag": "id"},
-  {"text": "Jadilah pemimpin yang melayani, bukan yang ingin dilayani.", "author": "Filosofi Kepemimpinan Indonesia", "tag": "id"},
-  {"text": "Kesuksesan sejati adalah ketika kamu berhasil membantu orang lain sukses.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Dari kecil terbiasa jujur, besar menjadi andalan.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Setiap orang memiliki keunikannya sendiri; kenali dan kembangkan.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Air beriak tanda tak dalam; air tenang menghanyutkan.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Semua yang baik dimulai dari niat yang tulus.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Perubahan dimulai dari dirimu sendiri.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Nasib baik bukan kebetulan; ia adalah hasil dari persiapan yang bertemu kesempatan.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Bukannya kita tidak bisa, tapi kita belum mencoba cukup keras.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Orang yang tidak pernah gagal adalah orang yang tidak pernah mencoba.", "author": "Pepatah Indonesia", "tag": "id"},
-  {"text": "Keberhasilan bukan tentang siapa yang paling cepat, tapi siapa yang paling konsisten.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Bukan seberapa besar mimpimu, tapi seberapa besar usahamu untuk mewujudkannya.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Gotong royong adalah kekuatan kita yang tak ternilai.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Hidup bukan tentang menemukan diri, tapi tentang menciptakan diri.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Nilai dirimu bukan dari apa yang kamu miliki, tapi dari apa yang kamu berikan.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Satu orang yang yakin mampu menggerakkan seribu orang yang ragu.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Ketekunan adalah kata kunci kesuksesan yang tidak ada dalam kamus orang malas.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Sesungguhnya setelah kesulitan ada kemudahan.", "author": "Al-Quran, QS. Al-Insyirah: 6", "tag": "id"},
-  {"text": "Niat baik tanpa tindakan hanya impian; tindakan tanpa niat baik hanya kesia-siaan.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Kepercayaan diri bukan tentang selalu benar, tapi tentang tidak takut salah.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Jadilah mercusuar, bukan layangan yang mengikuti angin.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Orang yang selalu menunggu waktu yang tepat tidak akan pernah memulai.", "author": "Pepatah Indonesia", "tag": "id"},
-  {"text": "Diam yang penuh makna lebih baik dari banyak bicara yang kosong.", "author": "Filosofi Jawa", "tag": "id"},
-  {"text": "Ojo dumeh — jangan sombong ketika sedang berada di atas.", "author": "Pepatah Jawa", "tag": "id"},
-  {"text": "Sepi ing pamrih, rame ing gawe — sedikit bicara, banyak bekerja.", "author": "Filosofi Jawa", "tag": "id"},
-  {"text": "Urip mung mampir ngombe — hidup hanya mampir minum; jalani dengan bermakna.", "author": "Filosofi Jawa", "tag": "id"},
-  {"text": "Ing ngarso sung tuladha, ing madya mangun karsa, tut wuri handayani.", "author": "Ki Hajar Dewantara", "tag": "id"},
-  {"text": "Manusia yang terbaik adalah yang paling bermanfaat bagi sesamanya.", "author": "Hadis Nabi Muhammad SAW", "tag": "id"},
-  {"text": "Bermimpilah dan percayai dirimu; setengah dari perjuangan sudah kamu menangkan.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Alam takambang jadi guru — alam semesta adalah guru terbaik.", "author": "Pepatah Minang", "tag": "id"},
-  {"text": "Bulat air karena pembuluh, bulat kata karena mufakat.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Keras batu karena tempaan, keras hati karena latihan.", "author": "Peribahasa Indonesia", "tag": "id"},
-  {"text": "Bukan puncaknya yang penting, tapi perjalanan mendakinya.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Rendah hati bukan kelemahan; itu kekuatan yang dipilih.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Kesempatan tidak datang dua kali; bersiaplah selalu.", "author": "Pepatah Indonesia", "tag": "id"},
-  {"text": "Setiap langkah yang kamu ambil hari ini adalah investasi untuk masa depanmu.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Belajarlah dari kemarin, hiduplah untuk hari ini, berharaplah untuk esok.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Jangan pernah meremehkan kebaikan kecil; ia bisa mengubah hari seseorang.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Keikhlasan adalah kunci ketenangan jiwa.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Orang yang sabar adalah orang yang paling tangguh.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Cita-cita tanpa usaha adalah angan-angan; usaha tanpa cita-cita adalah kelelahan.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Bangga bukan karena tidak pernah jatuh, tetapi karena selalu bangkit setiap kali jatuh.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Hati yang lapang menerima semua sebagai pelajaran.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Kejujuran adalah mata uang yang laku di mana-mana.", "author": "Pepatah Indonesia", "tag": "id"},
-  {"text": "Hidup bukan kompetisi; fokuslah pada perjalananmu sendiri.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Rasa syukur yang tulus membuka pintu kebahagiaan yang sejati.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Kerja keras tidak pernah berkhianat.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Dari kegagalan terlahir inovasi terbesar.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Mimpi yang besar membutuhkan keberanian yang lebih besar.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Waktu adalah modal paling berharga; jangan habiskan tanpa makna.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Jangan biarkan keadaan menentukan nilaimu; kamulah yang menentukan nilaimu sendiri.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Hidup adalah pilihan; pilihlah yang membuat hidupmu bermakna.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Percayalah pada proses — setiap titik keringat akan terbayar.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Tidak ada hal yang benar-benar mustahil bagi mereka yang percaya.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Jadilah cahaya di tengah kegelapan, bukan ikut tenggelam di dalamnya.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Sabar bukan berarti diam; sabar berarti terus bergerak meski terasa berat.", "author": "Filosofi Nusantara", "tag": "id"},
-  {"text": "Yang membedakan orang biasa dan luar biasa hanyalah keberanian untuk mencoba hal baru.", "author": "Motivasi Indonesia", "tag": "id"},
-  {"text": "Kepribadian yang baik adalah aset yang tidak ternilai harganya.", "author": "Filosofi Nusantara", "tag": "id"},
-
-  {"text": "The only way to do great work is to love what you do.", "author": "Steve Jobs (paraphrase)", "tag": "en"},
-  {"text": "It always seems impossible until it's done.", "author": "Nelson Mandela", "tag": "en"},
-  {"text": "In the middle of every difficulty lies opportunity.", "author": "Albert Einstein (paraphrase)", "tag": "en"},
-  {"text": "Success is not final, failure is not fatal: it is the courage to continue that counts.", "author": "Winston Churchill", "tag": "en"},
-  {"text": "The secret of getting ahead is getting started.", "author": "Mark Twain", "tag": "en"},
-  {"text": "Do what you can, with what you have, where you are.", "author": "Theodore Roosevelt", "tag": "en"},
-  {"text": "Knowing yourself is the beginning of all wisdom.", "author": "Aristotle", "tag": "en"},
-  {"text": "The unexamined life is not worth living.", "author": "Socrates", "tag": "en"},
-  {"text": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.", "author": "Aristotle", "tag": "en"},
-  {"text": "The mind is not a vessel to be filled but a fire to be kindled.", "author": "Plutarch", "tag": "en"},
-  {"text": "Waste no more time arguing about what a good man should be; be one.", "author": "Marcus Aurelius", "tag": "en"},
-  {"text": "You have power over your mind, not outside events. Realize this, and you will find strength.", "author": "Marcus Aurelius", "tag": "en"},
-  {"text": "The best revenge is to be unlike him who performed the injury.", "author": "Marcus Aurelius", "tag": "en"},
-  {"text": "If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it.", "author": "Marcus Aurelius", "tag": "en"},
-  {"text": "Difficulties strengthen the mind, as labor does the body.", "author": "Seneca", "tag": "en"},
-  {"text": "He who fears death will never do anything worthy of a living man.", "author": "Seneca", "tag": "en"},
-  {"text": "It is not that I'm so smart; it's just that I stay with problems longer.", "author": "Albert Einstein (paraphrase)", "tag": "en"},
-  {"text": "Life is what happens to you while you're busy making other plans.", "author": "Allen Saunders (often misattributed to John Lennon)", "tag": "en"},
-  {"text": "Be yourself; everyone else is already taken.", "author": "Oscar Wilde", "tag": "en"},
-  {"text": "Two roads diverged in a wood, and I took the one less traveled by, and that has made all the difference.", "author": "Robert Frost", "tag": "en"},
-  {"text": "In the end, it's not the years in your life that count. It's the life in your years.", "author": "Abraham Lincoln (paraphrase)", "tag": "en"},
-  {"text": "A person who never made a mistake never tried anything new.", "author": "Albert Einstein (paraphrase)", "tag": "en"},
-  {"text": "The greatest glory in living lies not in never falling, but in rising every time we fall.", "author": "Nelson Mandela", "tag": "en"},
-  {"text": "Spread love everywhere you go. Let no one ever come to you without leaving happier.", "author": "Mother Teresa", "tag": "en"},
-  {"text": "When you reach the end of your rope, tie a knot in it and hang on.", "author": "Franklin D. Roosevelt", "tag": "en"},
-  {"text": "Always remember that you are absolutely unique, just like everyone else.", "author": "Margaret Mead", "tag": "en"},
-  {"text": "It is during our darkest moments that we must focus to see the light.", "author": "Aristotle Onassis", "tag": "en"},
-  {"text": "Tell me and I forget, teach me and I may remember, involve me and I learn.", "author": "Benjamin Franklin", "tag": "en"},
-  {"text": "The best time to plant a tree was 20 years ago. The second best time is now.", "author": "Chinese Proverb", "tag": "en"},
-  {"text": "An unexamined life is not worth living; but an overexamined life is not worth enjoying.", "author": "Philosophical paraphrase", "tag": "en"},
-  {"text": "Darkness cannot drive out darkness; only light can do that.", "author": "Martin Luther King Jr.", "tag": "en"},
-  {"text": "The measure of intelligence is the ability to change.", "author": "Albert Einstein (paraphrase)", "tag": "en"},
-  {"text": "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.", "author": "Ralph Waldo Emerson", "tag": "en"},
-  {"text": "I have not failed. I've just found ten thousand ways that won't work.", "author": "Thomas Edison (paraphrase)", "tag": "en"},
-  {"text": "Believe you can and you're halfway there.", "author": "Theodore Roosevelt", "tag": "en"},
-  {"text": "Start where you are. Use what you have. Do what you can.", "author": "Arthur Ashe", "tag": "en"},
-  {"text": "Act as if what you do makes a difference. It does.", "author": "William James", "tag": "en"},
-  {"text": "Success is not how high you have climbed, but how you make a positive difference to the world.", "author": "Roy T. Bennett (paraphrase)", "tag": "en"},
-  {"text": "When we are no longer able to change a situation, we are challenged to change ourselves.", "author": "Viktor Frankl", "tag": "en"},
-  {"text": "Everything you've ever wanted is on the other side of fear.", "author": "George Addair (paraphrase)", "tag": "en"},
-  {"text": "Dream big and dare to fail.", "author": "Norman Vaughan (paraphrase)", "tag": "en"},
-  {"text": "You must be the change you wish to see in the world.", "author": "Mahatma Gandhi", "tag": "en"},
-  {"text": "First they ignore you, then they laugh at you, then they fight you, then you win.", "author": "Attributed to Mahatma Gandhi", "tag": "en"},
-  {"text": "Live as if you were to die tomorrow. Learn as if you were to live forever.", "author": "Mahatma Gandhi", "tag": "en"},
-  {"text": "The journey of a thousand miles begins with a single step.", "author": "Laozi", "tag": "en"},
-  {"text": "Nature does not hurry, yet everything is accomplished.", "author": "Laozi (paraphrase)", "tag": "en"},
-  {"text": "A good traveler has no fixed plans and is not intent on arriving.", "author": "Laozi (paraphrase)", "tag": "en"},
-  {"text": "To the mind that is still, the whole universe surrenders.", "author": "Laozi (paraphrase)", "tag": "en"},
-  {"text": "Knowing others is wisdom; knowing yourself is enlightenment.", "author": "Laozi (Tao Te Ching)", "tag": "en"},
-  {"text": "Man conquers the world by conquering himself.", "author": "Zeno of Citium (paraphrase)", "tag": "en"},
-  {"text": "The obstacle is the path.", "author": "Zen proverb", "tag": "en"},
-  {"text": "Before enlightenment, chop wood, carry water. After enlightenment, chop wood, carry water.", "author": "Zen proverb", "tag": "en"},
-  {"text": "If you understand, things are just as they are. If you do not understand, things are just as they are.", "author": "Zen saying", "tag": "en"},
-  {"text": "Not all those who wander are lost.", "author": "J.R.R. Tolkien", "tag": "en"},
-  {"text": "Courage is not the absence of fear but the judgment that something else is more important.", "author": "Ambrose Redmoon (paraphrase)", "tag": "en"},
-  {"text": "Great minds discuss ideas; average minds discuss events; small minds discuss people.", "author": "Eleanor Roosevelt", "tag": "en"},
-  {"text": "No one can make you feel inferior without your consent.", "author": "Eleanor Roosevelt", "tag": "en"},
-  {"text": "The future belongs to those who believe in the beauty of their dreams.", "author": "Eleanor Roosevelt", "tag": "en"},
-  {"text": "It does not matter how slowly you go as long as you do not stop.", "author": "Confucius (paraphrase)", "tag": "en"},
-  {"text": "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.", "author": "Thomas Edison (paraphrase)", "tag": "en"},
-  {"text": "You miss 100% of the shots you don't take.", "author": "Wayne Gretzky", "tag": "en"},
-  {"text": "Whether you think you can or you think you can't, you're right.", "author": "Henry Ford (paraphrase)", "tag": "en"},
-  {"text": "The only limit to our realization of tomorrow will be our doubts of today.", "author": "Franklin D. Roosevelt", "tag": "en"},
-  {"text": "Try not to become a man of success, but rather try to become a man of value.", "author": "Albert Einstein (paraphrase)", "tag": "en"},
-  {"text": "Good, better, best. Never let it rest. Until your good is better and your better is best.", "author": "Tim Duncan (paraphrase)", "tag": "en"},
-  {"text": "Resilience is knowing that you are the only one that has the power and the responsibility to pick yourself up.", "author": "Mary Holloway (paraphrase)", "tag": "en"},
-  {"text": "Stars can't shine without darkness.", "author": "D.H. Sidebottom (paraphrase)", "tag": "en"},
-  {"text": "The harder you work for something, the greater you'll feel when you achieve it.", "author": "Philosophical saying", "tag": "en"},
-  {"text": "Push yourself, because no one else is going to do it for you.", "author": "Motivational saying", "tag": "en"},
-  {"text": "Great things never come from comfort zones.", "author": "Roy T. Bennett (paraphrase)", "tag": "en"},
-  {"text": "Sometimes later becomes never. Do it now.", "author": "Motivational saying", "tag": "en"},
-  {"text": "Little things make big days.", "author": "Motivational saying", "tag": "en"},
-  {"text": "It's going to be hard, but hard does not mean impossible.", "author": "Motivational saying", "tag": "en"},
-  {"text": "Don't stop when you're tired. Stop when you're done.", "author": "Motivational saying", "tag": "en"},
-  {"text": "Wake up with determination. Go to bed with satisfaction.", "author": "Motivational saying", "tag": "en"},
-  {"text": "Do something today that your future self will thank you for.", "author": "Sean Patrick Flanery (paraphrase)", "tag": "en"},
-  {"text": "The secret of change is to focus all of your energy not on fighting the old, but on building the new.", "author": "Socrates (Peaceful Warrior)", "tag": "en"},
-  {"text": "Small steps in the right direction can turn out to be the biggest step of your life.", "author": "Motivational saying", "tag": "en"},
-  {"text": "If you want to achieve greatness, stop asking for permission.", "author": "Motivational saying", "tag": "en"},
-  {"text": "Go as far as you can see; when you get there, you'll be able to see further.", "author": "Thomas Carlyle (paraphrase)", "tag": "en"},
-  {"text": "The only person you are destined to become is the person you decide to be.", "author": "Ralph Waldo Emerson (paraphrase)", "tag": "en"},
-  {"text": "Don't watch the clock; do what it does. Keep going.", "author": "Sam Levenson", "tag": "en"},
-  {"text": "Keep your face always toward the sunshine, and shadows will fall behind you.", "author": "Walt Whitman", "tag": "en"},
-  {"text": "What we think, we become.", "author": "Gautama Buddha (paraphrase)", "tag": "en"},
-  {"text": "Your mind is a garden; your thoughts are the seeds. You can grow flowers or weeds.", "author": "Philosophical saying", "tag": "en"},
-  {"text": "Patience is bitter, but its fruit is sweet.", "author": "Aristotle (paraphrase)", "tag": "en"},
-  {"text": "The secret of happiness is not in doing what one likes, but in liking what one does.", "author": "J.M. Barrie (paraphrase)", "tag": "en"},
-  {"text": "Every day may not be good, but there is something good in every day.", "author": "Alice Morse Earle (paraphrase)", "tag": "en"},
-  {"text": "Even the darkest night will end, and the sun will rise.", "author": "Victor Hugo (paraphrase)", "tag": "en"},
-  {"text": "You are braver than you believe, stronger than you seem, smarter than you think.", "author": "A.A. Milne (paraphrase)", "tag": "en"},
-  {"text": "The best is yet to come.", "author": "Robert Browning (paraphrase)", "tag": "en"},
-  {"text": "You don't have to be great to start, but you have to start to be great.", "author": "Zig Ziglar", "tag": "en"},
-  {"text": "Don't be afraid to give up the good to go for the great.", "author": "John D. Rockefeller (paraphrase)", "tag": "en"},
-  {"text": "I find that the harder I work, the more luck I seem to have.", "author": "Thomas Jefferson (paraphrase)", "tag": "en"},
-  {"text": "Success usually comes to those who are too busy to be looking for it.", "author": "Henry David Thoreau", "tag": "en"},
-  {"text": "Don't let yesterday take up too much of today.", "author": "Will Rogers", "tag": "en"},
-  {"text": "The only impossible journey is the one you never begin.", "author": "Tony Robbins", "tag": "en"},
-  {"text": "In the end, we only regret the chances we didn't take.", "author": "Lewis Carroll (paraphrase)", "tag": "en"},
-  {"text": "Life is short, and it is here to be lived.", "author": "Kate Winslet (paraphrase)", "tag": "en"},
-  {"text": "The purpose of our lives is to be happy.", "author": "Dalai Lama", "tag": "en"},
-  {"text": "Get busy living or get busy dying.", "author": "Stephen King", "tag": "en"},
-  {"text": "You only live once, but if you do it right, once is enough.", "author": "Mae West", "tag": "en"},
-  {"text": "Many of life's failures are people who did not realize how close they were to success when they gave up.", "author": "Thomas A. Edison (paraphrase)", "tag": "en"},
-  {"text": "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.", "author": "Dr. Seuss", "tag": "en"},
-  {"text": "If life were predictable it would cease to be life, and be without flavor.", "author": "Eleanor Roosevelt", "tag": "en"},
-  {"text": "If you look at what you have in life, you'll always have more.", "author": "Oprah Winfrey", "tag": "en"},
-  {"text": "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.", "author": "James Cameron", "tag": "en"},
-  {"text": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.", "author": "Maya Angelou (paraphrase)", "tag": "en"},
-  {"text": "Life imposes things on you that you can't control, but you still have the choice of how you're going to live through this.", "author": "Celine Dion (paraphrase)", "tag": "en"},
-  {"text": "It's not whether you get knocked down, it's whether you get up.", "author": "Vince Lombardi", "tag": "en"},
-  {"text": "If you are working on something that you really care about, you don't have to be pushed. The vision pulls you.", "author": "Steve Jobs (paraphrase)", "tag": "en"},
-  {"text": "People who are crazy enough to think they can change the world, are the ones who do.", "author": "Rob Siltanen", "tag": "en"},
-  {"text": "Failure will never overtake me if my determination to succeed is strong enough.", "author": "Og Mandino", "tag": "en"},
-  {"text": "Entrepreneurs are great at dealing with uncertainty and also very good at minimizing risk. That's the classic entrepreneur.", "author": "Mohnish Pabrai", "tag": "en"},
-  {"text": "We may encounter many defeats but we must not be defeated.", "author": "Maya Angelou", "tag": "en"},
-  {"text": "Knowing is not enough; we must apply. Wishing is not enough; we must do.", "author": "Johann Wolfgang Von Goethe (paraphrase)", "tag": "en"},
-  {"text": "Imagine your life is perfect in every respect; what would it look like?", "author": "Brian Tracy", "tag": "en"},
-  {"text": "We generate fears while we sit. We overcome them by action.", "author": "Dr. Henry Link (paraphrase)", "tag": "en"},
-  {"text": "Whether you think you can or think you can't, you're right.", "author": "Henry Ford (paraphrase)", "tag": "en"},
-  {"text": "Security is mostly a superstition. Life is either a daring adventure or nothing.", "author": "Helen Keller", "tag": "en"},
-  {"text": "The man who has confidence in himself gains the confidence of others.", "author": "Hasidic Saying", "tag": "en"},
-  {"text": "The only way to achieve the impossible is to believe it is possible.", "author": "Charles Kingsleigh (paraphrase)", "tag": "en"},
-  {"text": "Nothing is impossible, the word itself says 'I'm possible'!", "author": "Audrey Hepburn", "tag": "en"}
+  {
+    "text": "Jangan menunggu sempurna untuk mulai; kesempurnaan datang dari terus melakukan.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Pohon yang paling kuat bukan yang selalu terlindung dari badai, tetapi yang telah belajar tumbuh di tengahnya.",
+    "author": "Zen",
+    "tag": "jp"
+  },
+  {
+    "text": "Pikiran yang tenang lebih tajam dari pedang terbaik.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang pejuang sejati tidak mencari perkelahian; ia mencari kedamaian dengan siap menghadapi segalanya.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Bunga sakura mengajarkan kita: keindahan terbesar ada di momen yang singkat.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ketahui dirimu sendiri, kenali musuhmu, maka seribu pertempuran takkan membuatmu kalah.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Air mengalir melewati batu bukan karena kekuatan, tetapi karena ketekunan.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Tidak ada jalan menuju keahlian selain melalui ribuan jam latihan.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Jadilah seperti bambu: lentur tapi tak mudah patah.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Diam adalah jawaban terkuat untuk orang yang tidak mau mendengar.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang pejuang hanya berjuang untuk sesuatu yang layak diperjuangkan.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Matahari terbit tidak meminta izin untuk bersinar.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Hidup itu seperti cermin; berikan senyum dan ia akan memantulkan senyum balik.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kemenangan sejati bukan mengalahkan orang lain, melainkan mengalahkan diri sendiri.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Sebuah kata yang diucapkan dengan tulus mampu mengubah hidup seseorang.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Musim gugur mengingatkan kita bahwa melepaskan pun bisa menjadi keindahan.",
+    "author": "Haiku Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Hanya ketika pikiran kosong, kreativitas sejati bisa hadir.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Satu langkah dalam arah yang benar lebih berharga dari seribu langkah yang terburu-buru.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Persiapan adalah kehormatan; kecerobohan adalah penghinaan terhadap diri sendiri.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Angin kencang tidak bisa mematahkan pohon yang akarnya kuat.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Jadikan setiap hari sebagai karya terbaik hidupmu.",
+    "author": "Filosofi Zen",
+    "tag": "jp"
+  },
+  {
+    "text": "Rasa syukur membuka pintu kelimpahan yang tidak bisa dibuka oleh kekayaan.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Tidak ada keberhasilan tanpa kegagalan yang dipelajari.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang bijak berbicara karena memiliki sesuatu untuk dikatakan; orang bodoh berbicara karena harus mengatakan sesuatu.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Saat kau tidak bisa mengubah angin, aturlah layarmu.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Keberanian sejati bukan absennya rasa takut, melainkan melangkah meskipun takut.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Kesederhanaan adalah kemewahan tertinggi.",
+    "author": "Estetika Jepang (Wabi-sabi)",
+    "tag": "jp"
+  },
+  {
+    "text": "Bahkan bulan pun memiliki sisi gelap; demikian juga manusia sempurna.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Bukan seberapa jauh kamu berlari, tapi seberapa konsisten langkahmu.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Cahaya lilin kecil sekalipun mampu mengusir kegelapan di ruangan besar.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Yang membedakan ahli dari pemula adalah ketahanan dalam mengulang.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Jangan pernah menghina kesederhanaan; di situlah kejujuran tinggal.",
+    "author": "Zen",
+    "tag": "jp"
+  },
+  {
+    "text": "Hidup bukan tentang menghindari badai, tetapi belajar menari di bawah hujan.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang samurai tanpa tuan tetaplah samurai karena integritasnya.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Waktu tidak menunggu siapapun; manfaatkan setiap detiknya.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Biji kecil pun bisa tumbuh menjadi pohon raksasa jika diberi tanah yang baik.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Keheningan sering menyampaikan lebih banyak dari kata-kata.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Mereka yang tahu banyak tidak selalu berkata-kata; mereka yang banyak berkata belum tentu tahu.",
+    "author": "Filosofi Zen",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap akhir adalah awal dari sesuatu yang baru.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Hanya dengan mengenal batas diri kita bisa melampaui batas tersebut.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Orang yang telah melewati kegelapan menghargai cahaya lebih dari siapapun.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Latihan membuat pergerakan menjadi alami; kealamian membuat gerakan menjadi seni.",
+    "author": "Filosofi Budo",
+    "tag": "jp"
+  },
+  {
+    "text": "Impian terbesar sekalipun dimulai dari langkah pertama yang kecil.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Tindakan berbicara lebih keras dari janji.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Satu kesalahan yang dipelajari lebih berharga dari seribu keberhasilan tanpa refleksi.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Masa lalu tidak bisa diubah; masa depan belum terjadi; hanya sekarang yang bisa dikuasai.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Keteguhan hati adalah modal terbesar yang bisa dimiliki seseorang.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Jika kamu tidak bisa menemukan ketenangan di dalam dirimu, carilah ke mana pun kamu mau—kamu tak akan menemukannya.",
+    "author": "Zen",
+    "tag": "jp"
+  },
+  {
+    "text": "Kesabaran adalah pedang yang tidak pernah tumpul.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Musuh terbesar seorang pejuang bukanlah lawan di hadapannya, melainkan keraguan dalam dirinya.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Pohon tumbuh dari akar yang tak terlihat; demikian juga karakter tumbuh dari kebiasaan yang tak disadari.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seni tertinggi adalah mengubah yang biasa menjadi luar biasa.",
+    "author": "Estetika Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seperti air yang mengisi wadah apapun, jadilah fleksibel dalam pendekatan namun teguh dalam tujuan.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Menang tanpa hormat adalah menang yang sia-sia.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap orang memiliki bintang di dalam dirinya; tugasnya adalah menemukannya.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kegagalan hanya berarti kamu belum selesai mencoba.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Hidup terlalu singkat untuk diisi dengan kepahitan.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang pejuang memilih pertempurannya dengan bijaksana; bukan setiap tantangan layak dilawan.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Niat yang tulus adalah setengah dari keberhasilan.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Bunga tidak bersaing dengan bunga di sebelahnya; ia hanya mekar.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Rasa hormat tidak datang dari kekuatan fisik, melainkan dari integritas karakter.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Keindahan sejati tidak butuh ornamen.",
+    "author": "Wabi-sabi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ketika murid siap, guru akan muncul.",
+    "author": "Pepatah Zen",
+    "tag": "jp"
+  },
+  {
+    "text": "Keberanian tanpa hikmat adalah kebodohan; hikmat tanpa keberanian adalah kesia-siaan.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Jalan seribu mil dimulai dari satu langkah di bawah kakimu.",
+    "author": "Filosofi Asia Timur",
+    "tag": "jp"
+  },
+  {
+    "text": "Seperti angin yang tak bisa digenggam, demikian pula waktu yang terlewat.",
+    "author": "Haiku Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Orang yang paling tangguh bukan yang tidak pernah jatuh, melainkan yang selalu bangkit.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Tekad bulat adalah kunci semua pencapaian besar.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Pikiran yang fokus mampu memindahkan gunung.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Dalam kesederhanaan, temukan keagungan.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Tidak ada yang sia-sia selama kamu belajar darinya.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Jiwa yang tenang mampu menanggung beban yang besar.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Waktu yang diinvestasikan untuk belajar tidak pernah terbuang.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kelemahan yang diakui adalah kekuatan yang menunggu untuk bertumbuh.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap detik yang berlalu adalah kesempatan untuk menjadi lebih baik.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Jangan biarkan kemarahan mengambil alih kebijaksanaanmu.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Dalam keheningan malam, pikiran yang paling dalam berbicara.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Hidup adalah pameran singkat; tampilkan karya terbaikmu.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Yang sejati tidak membutuhkan pembuktian.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Pepatah lama: jatuh tujuh kali, bangkit delapan.",
+    "author": "Pepatah Jepang (Nana korobi ya oki)",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang prajurit sejati tidak pernah meninggalkan medan perang tanpa kehormatan.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Kesenangan dalam pekerjaan menjadikan pekerjaan itu sempurna.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Hanya mereka yang berani mengambil risiko yang akan merasakan buah kemenangan.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Alam mengajarkan kita: setelah musim dingin, selalu ada musim semi.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Orang yang menguasai dirinya sendiri lebih kuat dari yang menguasai kota.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Bertindak dengan penuh perhatian adalah bentuk penghormatan tertinggi.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Pikiran yang tidak terlatih adalah musuh terbesarmu.",
+    "author": "Filosofi Budo",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap keputusan membawa konsekuensi; pilihlah dengan bijak.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Keahlian bukan milik orang berbakat, melainkan milik orang yang tekun.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Dari matahari terbit kita belajar: awal baru selalu mungkin.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Senyum kecil mampu membuka pintu yang tertutup rapat.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Hiduplah sepenuhnya di saat ini; masa lalu adalah kenangan, masa depan adalah harapan.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang seniman sejati tidak berhenti belajar meski telah mahir.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kepercayaan adalah fondasi semua hubungan yang tulus.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Takut adalah ilusi; keberanian adalah pilihan.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Bulan tidak peduli siapa yang memandangnya; ia tetap bersinar.",
+    "author": "Haiku Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kebaikan yang diberikan dengan tulus akan kembali berlipat ganda.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kesulitan hari ini adalah kekuatan esok hari.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Hidup bukan tentang menemukan diri sendiri; hidup adalah tentang menciptakan diri sendiri.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Disiplin diri adalah bentuk cinta tertinggi kepada masa depanmu.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap maestro pernah menjadi pemula.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Musim bunga tidak bertanya apakah ia boleh mekar; ia mekar.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Lebih baik melakukan sesuatu dengan tidak sempurna daripada tidak melakukan sama sekali.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Jika hatimu tenang, seisi dunia pun akan terasa damai.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kehormatan adalah mahkota yang tidak bisa direnggut dari dalam.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Dalam melakukan hal kecil dengan sempurna, kita belajar melakukan hal besar.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Orang bijak belajar dari pengalaman orang lain; orang cerdas belajar dari pengalamannya sendiri; orang bodoh tidak belajar dari keduanya.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Sebuah karya besar lahir dari ribuan percobaan kecil.",
+    "author": "Filosofi Seni Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Jadilah yang pertama tiba dan yang terakhir meninggalkan medan; itulah semangat pejuang.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Sungai tidak pernah berhenti mengalir; demikian semangat yang sejati.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ketika kamu tidak bisa melanjutkan, ingat mengapa kamu memulai.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Keberhasilan sejati bukan diukur dari apa yang kamu miliki, melainkan dari siapa kamu.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Belajar tanpa berpikir adalah membuang waktu; berpikir tanpa belajar adalah berbahaya.",
+    "author": "Filosofi Asia Timur",
+    "tag": "jp"
+  },
+  {
+    "text": "Harmoni adalah seni hidup paling indah.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang yang takut gagal tidak akan pernah tahu seberapa jauh ia bisa melangkah.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Tanpa tujuan yang jelas, setiap arah adalah salah.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Keindahan ada dalam ketidaksempurnaan yang diterima dengan lapang.",
+    "author": "Wabi-sabi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Pikiranmu adalah tamanmu; jaga apa yang kamu tanam di sana.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang pejuang tidak bersembunyi dari kenyataan; ia menghadapinya.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Dalam kedamaian, persiapkan diri untuk perang; dalam perang, jaga kedamaian batin.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Tanda kebijaksanaan adalah mengetahui kapan harus berbicara dan kapan harus diam.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Bunga yang indah tidak tumbuh di tanah yang mudah.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kemenangan terbesar adalah yang dicapai dengan cara yang bermartabat.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Hidup yang dijalani dengan penuh kesadaran adalah hidup yang sejati.",
+    "author": "Filosofi Zen",
+    "tag": "jp"
+  },
+  {
+    "text": "Ketika semua orang berlari, berhentilah dan bertanya: ke mana tujuan kita?",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Tangan yang memberi selalu lebih bahagia dari tangan yang menerima.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Jadilah lentur seperti angin, namun teguh seperti gunung.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Kepuasan sejati datang dari perjalanan, bukan hanya dari tujuan.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Latihan keras hari ini adalah kemenangan mudah esok hari.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Di balik setiap kesulitan tersimpan benih peluang.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang seniman melihat bukan apa yang ada, tetapi apa yang mungkin ada.",
+    "author": "Filosofi Seni Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kebijaksanaan datang bukan dari usia, melainkan dari pengalaman yang direnungkan.",
+    "author": "Filosofi Zen",
+    "tag": "jp"
+  },
+  {
+    "text": "Sebuah gelas tidak berguna jika penuh; kosongkan dahulu untuk bisa diisi.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Teruslah bergerak meskipun jalannya tidak terlihat jelas.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Tidak ada angin yang bisa mematahkan pohon yang menari bersamanya.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Bukan beratnya beban yang menghancurkan, melainkan cara kamu membawanya.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap hari adalah kesempatan baru untuk menjadi versi terbaik dirimu.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ilmu yang tidak diamalkan adalah seperti pohon yang tidak berbuah.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ketekunan mengalahkan kecerdasan; konsistensi mengalahkan bakat.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Senyum adalah bahasa yang dipahami oleh semua orang.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kerendahan hati adalah tanah di mana kebijaksanaan tumbuh.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Bertempurlah seperti ini adalah pertempuran terakhirmu; hiduplah seperti kamu hidup selamanya.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Jangan membandingkan perjalananmu dengan orang lain; setiap jalan berbeda.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ketenangan pikiran adalah harta yang paling sulit didapat dan paling berharga.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap batu yang menghalangi jalan bisa menjadi batu pijakan.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Orang yang tidak pernah membuat kesalahan tidak pernah mencoba sesuatu yang baru.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ketika hati dan pikiran selaras, tidak ada yang mustahil.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Cahaya yang paling terang sering kali menyembunyikan kegelapan yang paling dalam.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Semangat juang yang tidak padam adalah rahasia di balik semua pencapaian besar.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Keindahan alam bukan untuk dikuasai, melainkan untuk dinikmati dan dijaga.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Keberanian untuk berubah adalah awal dari semua pertumbuhan.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Saat kamu menyerah, ingat alasan mengapa kamu memulai.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kesuksesan tidak datang dalam semalam; ia dibangun dari konsistensi selama bertahun-tahun.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Pilihan kecil yang dibuat setiap hari membentuk nasibmu.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Tidak ada beban yang terlalu berat jika dibagi dengan hati yang ikhlas.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Percayalah pada prosesnya; buah kesabaran selalu manis.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Tindakan kecil yang dilakukan dengan cinta mengubah dunia.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Seorang seniman besar tidak takut memulai ulang dari nol.",
+    "author": "Filosofi Seni Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Hati yang penuh kebaikan tidak perlu membuktikan diri kepada siapapun.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Gelombang tidak berhenti karena badai; ia menjadi lebih kuat.",
+    "author": "Filosofi Laut Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Orang yang tahu batas kemampuannya, tahu pula bagaimana melampaui batas itu.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Apa yang tidak membunuhmu, membuatmu lebih kuat — jika kamu mau belajar.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Pikiran yang lemah menyerah pada keadaan; pikiran yang kuat menciptakan keadaan.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap perpisahan membuka ruang untuk pertemuan yang lebih bermakna.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Kepedulian kepada sesama adalah tanda jiwa yang benar-benar kaya.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Yang paling sulit bukan mencapai puncak, melainkan mempertahankan kerendahan hati setelah sampai.",
+    "author": "Filosofi Samurai",
+    "tag": "jp"
+  },
+  {
+    "text": "Kuasai tekniknya, lalu lupakan; biarkan jiwamu yang bergerak.",
+    "author": "Filosofi Seni Bela Diri Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Di mana ada keberanian, di situ ada jalan.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Rasa syukur adalah fondasi kebahagiaan yang paling kokoh.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Tidak ada waktu yang salah untuk melakukan hal yang benar.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap latihan adalah investasi yang tidak bisa dicuri oleh siapapun.",
+    "author": "Filosofi Budo Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Orang bijak tidak pernah tergesa-gesa, namun selalu tepat waktu.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Dalam keterbatasan, temukan kreativitas tertinggi.",
+    "author": "Filosofi Seni Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Bukan musuh di luar yang paling berbahaya, melainkan musuh di dalam diri.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Setiap benih perubahan ditanam dalam hati sebelum tumbuh di dunia.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Pikiran dan tubuh harus dilatih bersamaan untuk mencapai keselarasan sejati.",
+    "author": "Filosofi Budo",
+    "tag": "jp"
+  },
+  {
+    "text": "Keberhasilan bukan milik orang yang paling pintar, melainkan milik orang yang paling gigih.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ikigai: temukan persimpangan antara apa yang kamu sukai, apa yang kamu kuasai, apa yang dibutuhkan dunia, dan apa yang bisa menghidupkanmu.",
+    "author": "Filosofi Jepang (Ikigai)",
+    "tag": "jp"
+  },
+  {
+    "text": "Dalam Kaizen, tidak ada yang terlalu kecil untuk diperbaiki.",
+    "author": "Filosofi Jepang (Kaizen)",
+    "tag": "jp"
+  },
+  {
+    "text": "Perbaikan sedikit demi sedikit setiap hari menghasilkan perubahan besar dalam setahun.",
+    "author": "Filosofi Kaizen",
+    "tag": "jp"
+  },
+  {
+    "text": "Mono no aware: keindahan yang paling mendalam hadir dalam kefanaan.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ganbatte: lakukanlah yang terbaik dan jangan pernah menyerah.",
+    "author": "Semangat Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Shikata ga nai: ada hal yang tidak bisa diubah; terimalah dan lanjutkan.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Shokunin: jadilah ahli dalam bidangmu dengan dedikasi penuh jiwa.",
+    "author": "Etos Kerja Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Musang yang lambat tidak tertangkap; demikian juga orang yang tidak gegabah.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Ketika pikiran murni, semua yang ada di hadapan menjadi pelajaran.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Jadilah pejuang yang tidak bisa dikalahkan bukan karena tidak pernah diserang, tetapi karena tidak pernah menyerah.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Sakit adalah guru yang tidak berbicara; ia membuatmu merasakan sendiri pelajarannya.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Alam tidak terburu-buru, namun semua hal terjadi pada waktunya.",
+    "author": "Filosofi Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Yang terpenting bukan menjadi terbaik di antara orang lain, tetapi menjadi versi terbaik dirimu.",
+    "author": "Filosofi Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Keberanian sejati dimulai dari keberanian untuk jujur pada diri sendiri.",
+    "author": "Bushido",
+    "tag": "jp"
+  },
+  {
+    "text": "Asa wa kinan: pagi hari adalah emas — jangan lewatkan permulaan yang baik.",
+    "author": "Pepatah Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Perjalanan seribu mil dimulai dari satu nafas yang dalam dan tenang.",
+    "author": "Zen Jepang",
+    "tag": "jp"
+  },
+  {
+    "text": "Jangan tunggu sempurna, mulai dulu.",
+    "author": "Pepatah Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Berakit-rakit ke hulu, berenang-renang ke tepian; bersakit-sakit dahulu, bersenang-senang kemudian.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Kegagalan bukan akhir segalanya; ia adalah batu bata untuk membangun tangga kesuksesan.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Satu bintang yang bersinar lebih baik dari seribu bintang yang tidak.",
+    "author": "Pepatah Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Hidup bukan tentang seberapa keras kamu jatuh, tapi seberapa cepat kamu bangkit.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Tangan di atas lebih mulia dari tangan di bawah.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Sedikit demi sedikit, lama-lama menjadi bukit.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Habis gelap terbitlah terang.",
+    "author": "R.A. Kartini",
+    "tag": "id"
+  },
+  {
+    "text": "Gantungkan cita-citamu setinggi langit!",
+    "author": "Ir. Soekarno",
+    "tag": "id"
+  },
+  {
+    "text": "Kepulan asap menunjukkan adanya api; kerja keras menunjukkan adanya hasil.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Bermimpilah sebesar langit, berpijarlah bagi sesama.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Di mana ada kemauan, di situ ada jalan.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Bersatu kita teguh, bercerai kita runtuh.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Jika lelah, istirahat — tapi jangan berhenti.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Ilmu tanpa amal bagaikan pohon tanpa buah.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Sekali layar terkembang, pantang biduk surut ke pantai.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Yang besar bukan hanya yang menang, tapi yang berani mencoba.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Tak ada gading yang tak retak; tidak ada manusia yang sempurna.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Jadikan setiap tempat sebagai sekolah, dan setiap orang sebagai guru.",
+    "author": "Ki Hajar Dewantara",
+    "tag": "id"
+  },
+  {
+    "text": "Jadilah pemimpin yang melayani, bukan yang ingin dilayani.",
+    "author": "Filosofi Kepemimpinan Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Kesuksesan sejati adalah ketika kamu berhasil membantu orang lain sukses.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Dari kecil terbiasa jujur, besar menjadi andalan.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Setiap orang memiliki keunikannya sendiri; kenali dan kembangkan.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Air beriak tanda tak dalam; air tenang menghanyutkan.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Semua yang baik dimulai dari niat yang tulus.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Perubahan dimulai dari dirimu sendiri.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Nasib baik bukan kebetulan; ia adalah hasil dari persiapan yang bertemu kesempatan.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Bukannya kita tidak bisa, tapi kita belum mencoba cukup keras.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Orang yang tidak pernah gagal adalah orang yang tidak pernah mencoba.",
+    "author": "Randy Permana",
+    "tag": "id"
+  },
+  {
+    "text": "Keberhasilan bukan tentang siapa yang paling cepat, tapi siapa yang paling konsisten.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Bukan seberapa besar mimpimu, tapi seberapa besar usahamu untuk mewujudkannya.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Gotong royong adalah kekuatan kita yang tak ternilai.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Hidup bukan tentang menemukan diri, tapi tentang menciptakan diri.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Nilai dirimu bukan dari apa yang kamu miliki, tapi dari apa yang kamu berikan.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Satu orang yang yakin mampu menggerakkan seribu orang yang ragu.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Ketekunan adalah kata kunci kesuksesan yang tidak ada dalam kamus orang malas.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Sesungguhnya setelah kesulitan ada kemudahan.",
+    "author": "Al-Quran, QS. Al-Insyirah: 6",
+    "tag": "id"
+  },
+  {
+    "text": "Niat baik tanpa tindakan hanya impian; tindakan tanpa niat baik hanya kesia-siaan.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Kepercayaan diri bukan tentang selalu benar, tapi tentang tidak takut salah.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Jadilah mercusuar, bukan layangan yang mengikuti angin.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Orang yang selalu menunggu waktu yang tepat tidak akan pernah memulai.",
+    "author": "Pepatah Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Diam yang penuh makna lebih baik dari banyak bicara yang kosong.",
+    "author": "Filosofi Jawa",
+    "tag": "id"
+  },
+  {
+    "text": "Ojo dumeh — jangan sombong ketika sedang berada di atas.",
+    "author": "Pepatah Jawa",
+    "tag": "id"
+  },
+  {
+    "text": "Sepi ing pamrih, rame ing gawe — sedikit bicara, banyak bekerja.",
+    "author": "Filosofi Jawa",
+    "tag": "id"
+  },
+  {
+    "text": "Urip mung mampir ngombe — hidup hanya mampir minum; jalani dengan bermakna.",
+    "author": "Filosofi Jawa",
+    "tag": "id"
+  },
+  {
+    "text": "Ing ngarso sung tuladha, ing madya mangun karsa, tut wuri handayani.",
+    "author": "Ki Hajar Dewantara",
+    "tag": "id"
+  },
+  {
+    "text": "Manusia yang terbaik adalah yang paling bermanfaat bagi sesamanya.",
+    "author": "Hadis Nabi Muhammad SAW",
+    "tag": "id"
+  },
+  {
+    "text": "Bermimpilah dan percayai dirimu; setengah dari perjuangan sudah kamu menangkan.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Alam takambang jadi guru — alam semesta adalah guru terbaik.",
+    "author": "Pepatah Minang",
+    "tag": "id"
+  },
+  {
+    "text": "Bulat air karena pembuluh, bulat kata karena mufakat.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Keras batu karena tempaan, keras hati karena latihan.",
+    "author": "Peribahasa Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Bukan puncaknya yang penting, tapi perjalanan mendakinya.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Rendah hati bukan kelemahan; itu kekuatan yang dipilih.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Kesempatan tidak datang dua kali; bersiaplah selalu.",
+    "author": "Pepatah Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Setiap langkah yang kamu ambil hari ini adalah investasi untuk masa depanmu.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Belajarlah dari kemarin, hiduplah untuk hari ini, berharaplah untuk esok.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Jangan pernah meremehkan kebaikan kecil; ia bisa mengubah hari seseorang.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Keikhlasan adalah kunci ketenangan jiwa.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Orang yang sabar adalah orang yang paling tangguh.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Cita-cita tanpa usaha adalah angan-angan; usaha tanpa cita-cita adalah kelelahan.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Bangga bukan karena tidak pernah jatuh, tetapi karena selalu bangkit setiap kali jatuh.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Hati yang lapang menerima semua sebagai pelajaran.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Kejujuran adalah mata uang yang laku di mana-mana.",
+    "author": "Pepatah Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Hidup bukan kompetisi; fokuslah pada perjalananmu sendiri.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Rasa syukur yang tulus membuka pintu kebahagiaan yang sejati.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Kerja keras tidak pernah berkhianat.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Dari kegagalan terlahir inovasi terbesar.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Mimpi yang besar membutuhkan keberanian yang lebih besar.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Waktu adalah modal paling berharga; jangan habiskan tanpa makna.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Jangan biarkan keadaan menentukan nilaimu; kamulah yang menentukan nilaimu sendiri.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Hidup adalah pilihan; pilihlah yang membuat hidupmu bermakna.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Percayalah pada proses — setiap titik keringat akan terbayar.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Tidak ada hal yang benar-benar mustahil bagi mereka yang percaya.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Jadilah cahaya di tengah kegelapan, bukan ikut tenggelam di dalamnya.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Sabar bukan berarti diam; sabar berarti terus bergerak meski terasa berat.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "Yang membedakan orang biasa dan luar biasa hanyalah keberanian untuk mencoba hal baru.",
+    "author": "Motivasi Indonesia",
+    "tag": "id"
+  },
+  {
+    "text": "Kepribadian yang baik adalah aset yang tidak ternilai harganya.",
+    "author": "Filosofi Nusantara",
+    "tag": "id"
+  },
+  {
+    "text": "The only way to do great work is to love what you do.",
+    "author": "Steve Jobs (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "It always seems impossible until it's done.",
+    "author": "Nelson Mandela",
+    "tag": "en"
+  },
+  {
+    "text": "In the middle of every difficulty lies opportunity.",
+    "author": "Albert Einstein (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+    "author": "Winston Churchill",
+    "tag": "en"
+  },
+  {
+    "text": "The secret of getting ahead is getting started.",
+    "author": "Mark Twain",
+    "tag": "en"
+  },
+  {
+    "text": "Do what you can, with what you have, where you are.",
+    "author": "Theodore Roosevelt",
+    "tag": "en"
+  },
+  {
+    "text": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Aristotle",
+    "tag": "en"
+  },
+  {
+    "text": "The unexamined life is not worth living.",
+    "author": "Socrates",
+    "tag": "en"
+  },
+  {
+    "text": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Aristotle",
+    "tag": "en"
+  },
+  {
+    "text": "The mind is not a vessel to be filled but a fire to be kindled.",
+    "author": "Plutarch",
+    "tag": "en"
+  },
+  {
+    "text": "Waste no more time arguing about what a good man should be; be one.",
+    "author": "Marcus Aurelius",
+    "tag": "en"
+  },
+  {
+    "text": "You have power over your mind, not outside events. Realize this, and you will find strength.",
+    "author": "Marcus Aurelius",
+    "tag": "en"
+  },
+  {
+    "text": "The best revenge is to be unlike him who performed the injury.",
+    "author": "Marcus Aurelius",
+    "tag": "en"
+  },
+  {
+    "text": "If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it.",
+    "author": "Marcus Aurelius",
+    "tag": "en"
+  },
+  {
+    "text": "Difficulties strengthen the mind, as labor does the body.",
+    "author": "Seneca",
+    "tag": "en"
+  },
+  {
+    "text": "He who fears death will never do anything worthy of a living man.",
+    "author": "Seneca",
+    "tag": "en"
+  },
+  {
+    "text": "It is not that I'm so smart; it's just that I stay with problems longer.",
+    "author": "Albert Einstein (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Life is what happens to you while you're busy making other plans.",
+    "author": "Allen Saunders (often misattributed to John Lennon)",
+    "tag": "en"
+  },
+  {
+    "text": "Be yourself; everyone else is already taken.",
+    "author": "Oscar Wilde",
+    "tag": "en"
+  },
+  {
+    "text": "Two roads diverged in a wood, and I took the one less traveled by, and that has made all the difference.",
+    "author": "Robert Frost",
+    "tag": "en"
+  },
+  {
+    "text": "In the end, it's not the years in your life that count. It's the life in your years.",
+    "author": "Abraham Lincoln (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "A person who never made a mistake never tried anything new.",
+    "author": "Albert Einstein (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+    "author": "Nelson Mandela",
+    "tag": "en"
+  },
+  {
+    "text": "Spread love everywhere you go. Let no one ever come to you without leaving happier.",
+    "author": "Mother Teresa",
+    "tag": "en"
+  },
+  {
+    "text": "When you reach the end of your rope, tie a knot in it and hang on.",
+    "author": "Franklin D. Roosevelt",
+    "tag": "en"
+  },
+  {
+    "text": "Always remember that you are absolutely unique, just like everyone else.",
+    "author": "Margaret Mead",
+    "tag": "en"
+  },
+  {
+    "text": "It is during our darkest moments that we must focus to see the light.",
+    "author": "Aristotle Onassis",
+    "tag": "en"
+  },
+  {
+    "text": "Tell me and I forget, teach me and I may remember, involve me and I learn.",
+    "author": "Benjamin Franklin",
+    "tag": "en"
+  },
+  {
+    "text": "The best time to plant a tree was 20 years ago. The second best time is now.",
+    "author": "Chinese Proverb",
+    "tag": "en"
+  },
+  {
+    "text": "An unexamined life is not worth living; but an overexamined life is not worth enjoying.",
+    "author": "Philosophical paraphrase",
+    "tag": "en"
+  },
+  {
+    "text": "Darkness cannot drive out darkness; only light can do that.",
+    "author": "Martin Luther King Jr.",
+    "tag": "en"
+  },
+  {
+    "text": "The measure of intelligence is the ability to change.",
+    "author": "Albert Einstein (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.",
+    "author": "Ralph Waldo Emerson",
+    "tag": "en"
+  },
+  {
+    "text": "I have not failed. I've just found ten thousand ways that won't work.",
+    "author": "Thomas Edison (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Believe you can and you're halfway there.",
+    "author": "Theodore Roosevelt",
+    "tag": "en"
+  },
+  {
+    "text": "Start where you are. Use what you have. Do what you can.",
+    "author": "Arthur Ashe",
+    "tag": "en"
+  },
+  {
+    "text": "Act as if what you do makes a difference. It does.",
+    "author": "William James",
+    "tag": "en"
+  },
+  {
+    "text": "Success is not how high you have climbed, but how you make a positive difference to the world.",
+    "author": "Roy T. Bennett (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "When we are no longer able to change a situation, we are challenged to change ourselves.",
+    "author": "Viktor Frankl",
+    "tag": "en"
+  },
+  {
+    "text": "Everything you've ever wanted is on the other side of fear.",
+    "author": "George Addair (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Dream big and dare to fail.",
+    "author": "Norman Vaughan (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "You must be the change you wish to see in the world.",
+    "author": "Mahatma Gandhi",
+    "tag": "en"
+  },
+  {
+    "text": "First they ignore you, then they laugh at you, then they fight you, then you win.",
+    "author": "Attributed to Mahatma Gandhi",
+    "tag": "en"
+  },
+  {
+    "text": "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+    "author": "Mahatma Gandhi",
+    "tag": "en"
+  },
+  {
+    "text": "The journey of a thousand miles begins with a single step.",
+    "author": "Laozi",
+    "tag": "en"
+  },
+  {
+    "text": "Nature does not hurry, yet everything is accomplished.",
+    "author": "Laozi (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "A good traveler has no fixed plans and is not intent on arriving.",
+    "author": "Laozi (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "To the mind that is still, the whole universe surrenders.",
+    "author": "Laozi (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Knowing others is wisdom; knowing yourself is enlightenment.",
+    "author": "Laozi (Tao Te Ching)",
+    "tag": "en"
+  },
+  {
+    "text": "Man conquers the world by conquering himself.",
+    "author": "Zeno of Citium (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "The obstacle is the path.",
+    "author": "Zen proverb",
+    "tag": "en"
+  },
+  {
+    "text": "Before enlightenment, chop wood, carry water. After enlightenment, chop wood, carry water.",
+    "author": "Zen proverb",
+    "tag": "en"
+  },
+  {
+    "text": "If you understand, things are just as they are. If you do not understand, things are just as they are.",
+    "author": "Zen saying",
+    "tag": "en"
+  },
+  {
+    "text": "Not all those who wander are lost.",
+    "author": "J.R.R. Tolkien",
+    "tag": "en"
+  },
+  {
+    "text": "Courage is not the absence of fear but the judgment that something else is more important.",
+    "author": "Ambrose Redmoon (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Great minds discuss ideas; average minds discuss events; small minds discuss people.",
+    "author": "Eleanor Roosevelt",
+    "tag": "en"
+  },
+  {
+    "text": "No one can make you feel inferior without your consent.",
+    "author": "Eleanor Roosevelt",
+    "tag": "en"
+  },
+  {
+    "text": "The future belongs to those who believe in the beauty of their dreams.",
+    "author": "Eleanor Roosevelt",
+    "tag": "en"
+  },
+  {
+    "text": "It does not matter how slowly you go as long as you do not stop.",
+    "author": "Confucius (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+    "author": "Thomas Edison (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "You miss 100% of the shots you don't take.",
+    "author": "Wayne Gretzky",
+    "tag": "en"
+  },
+  {
+    "text": "Whether you think you can or you think you can't, you're right.",
+    "author": "Henry Ford (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "The only limit to our realization of tomorrow will be our doubts of today.",
+    "author": "Franklin D. Roosevelt",
+    "tag": "en"
+  },
+  {
+    "text": "Try not to become a man of success, but rather try to become a man of value.",
+    "author": "Albert Einstein (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Good, better, best. Never let it rest. Until your good is better and your better is best.",
+    "author": "Tim Duncan (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Resilience is knowing that you are the only one that has the power and the responsibility to pick yourself up.",
+    "author": "Mary Holloway (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Stars can't shine without darkness.",
+    "author": "D.H. Sidebottom (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "The harder you work for something, the greater you'll feel when you achieve it.",
+    "author": "Philosophical saying",
+    "tag": "en"
+  },
+  {
+    "text": "Push yourself, because no one else is going to do it for you.",
+    "author": "Motivational saying",
+    "tag": "en"
+  },
+  {
+    "text": "Great things never come from comfort zones.",
+    "author": "Roy T. Bennett (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Sometimes later becomes never. Do it now.",
+    "author": "Motivational saying",
+    "tag": "en"
+  },
+  {
+    "text": "Little things make big days.",
+    "author": "Motivational saying",
+    "tag": "en"
+  },
+  {
+    "text": "It's going to be hard, but hard does not mean impossible.",
+    "author": "Motivational saying",
+    "tag": "en"
+  },
+  {
+    "text": "Don't stop when you're tired. Stop when you're done.",
+    "author": "Motivational saying",
+    "tag": "en"
+  },
+  {
+    "text": "Wake up with determination. Go to bed with satisfaction.",
+    "author": "Motivational saying",
+    "tag": "en"
+  },
+  {
+    "text": "Do something today that your future self will thank you for.",
+    "author": "Sean Patrick Flanery (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "The secret of change is to focus all of your energy not on fighting the old, but on building the new.",
+    "author": "Socrates (Peaceful Warrior)",
+    "tag": "en"
+  },
+  {
+    "text": "Small steps in the right direction can turn out to be the biggest step of your life.",
+    "author": "Motivational saying",
+    "tag": "en"
+  },
+  {
+    "text": "If you want to achieve greatness, stop asking for permission.",
+    "author": "Motivational saying",
+    "tag": "en"
+  },
+  {
+    "text": "Go as far as you can see; when you get there, you'll be able to see further.",
+    "author": "Thomas Carlyle (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "The only person you are destined to become is the person you decide to be.",
+    "author": "Ralph Waldo Emerson (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Don't watch the clock; do what it does. Keep going.",
+    "author": "Sam Levenson",
+    "tag": "en"
+  },
+  {
+    "text": "Keep your face always toward the sunshine, and shadows will fall behind you.",
+    "author": "Walt Whitman",
+    "tag": "en"
+  },
+  {
+    "text": "What we think, we become.",
+    "author": "Gautama Buddha (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Your mind is a garden; your thoughts are the seeds. You can grow flowers or weeds.",
+    "author": "Philosophical saying",
+    "tag": "en"
+  },
+  {
+    "text": "Patience is bitter, but its fruit is sweet.",
+    "author": "Aristotle (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "The secret of happiness is not in doing what one likes, but in liking what one does.",
+    "author": "J.M. Barrie (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Every day may not be good, but there is something good in every day.",
+    "author": "Alice Morse Earle (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Even the darkest night will end, and the sun will rise.",
+    "author": "Victor Hugo (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "You are braver than you believe, stronger than you seem, smarter than you think.",
+    "author": "A.A. Milne (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "The best is yet to come.",
+    "author": "Robert Browning (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "You don't have to be great to start, but you have to start to be great.",
+    "author": "Zig Ziglar",
+    "tag": "en"
+  },
+  {
+    "text": "Don't be afraid to give up the good to go for the great.",
+    "author": "John D. Rockefeller (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "I find that the harder I work, the more luck I seem to have.",
+    "author": "Thomas Jefferson (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Success usually comes to those who are too busy to be looking for it.",
+    "author": "Henry David Thoreau",
+    "tag": "en"
+  },
+  {
+    "text": "Don't let yesterday take up too much of today.",
+    "author": "Will Rogers",
+    "tag": "en"
+  },
+  {
+    "text": "The only impossible journey is the one you never begin.",
+    "author": "Tony Robbins",
+    "tag": "en"
+  },
+  {
+    "text": "In the end, we only regret the chances we didn't take.",
+    "author": "Lewis Carroll (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Life is short, and it is here to be lived.",
+    "author": "Kate Winslet (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "The purpose of our lives is to be happy.",
+    "author": "Dalai Lama",
+    "tag": "en"
+  },
+  {
+    "text": "Get busy living or get busy dying.",
+    "author": "Stephen King",
+    "tag": "en"
+  },
+  {
+    "text": "You only live once, but if you do it right, once is enough.",
+    "author": "Mae West",
+    "tag": "en"
+  },
+  {
+    "text": "Many of life's failures are people who did not realize how close they were to success when they gave up.",
+    "author": "Thomas A. Edison (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.",
+    "author": "Dr. Seuss",
+    "tag": "en"
+  },
+  {
+    "text": "If life were predictable it would cease to be life, and be without flavor.",
+    "author": "Eleanor Roosevelt",
+    "tag": "en"
+  },
+  {
+    "text": "If you look at what you have in life, you'll always have more.",
+    "author": "Oprah Winfrey",
+    "tag": "en"
+  },
+  {
+    "text": "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.",
+    "author": "James Cameron",
+    "tag": "en"
+  },
+  {
+    "text": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Maya Angelou (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Life imposes things on you that you can't control, but you still have the choice of how you're going to live through this.",
+    "author": "Celine Dion (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "It's not whether you get knocked down, it's whether you get up.",
+    "author": "Vince Lombardi",
+    "tag": "en"
+  },
+  {
+    "text": "If you are working on something that you really care about, you don't have to be pushed. The vision pulls you.",
+    "author": "Steve Jobs (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "People who are crazy enough to think they can change the world, are the ones who do.",
+    "author": "Rob Siltanen",
+    "tag": "en"
+  },
+  {
+    "text": "Failure will never overtake me if my determination to succeed is strong enough.",
+    "author": "Og Mandino",
+    "tag": "en"
+  },
+  {
+    "text": "Entrepreneurs are great at dealing with uncertainty and also very good at minimizing risk. That's the classic entrepreneur.",
+    "author": "Mohnish Pabrai",
+    "tag": "en"
+  },
+  {
+    "text": "We may encounter many defeats but we must not be defeated.",
+    "author": "Maya Angelou",
+    "tag": "en"
+  },
+  {
+    "text": "Knowing is not enough; we must apply. Wishing is not enough; we must do.",
+    "author": "Johann Wolfgang Von Goethe (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Imagine your life is perfect in every respect; what would it look like?",
+    "author": "Brian Tracy",
+    "tag": "en"
+  },
+  {
+    "text": "We generate fears while we sit. We overcome them by action.",
+    "author": "Dr. Henry Link (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Whether you think you can or think you can't, you're right.",
+    "author": "Henry Ford (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Security is mostly a superstition. Life is either a daring adventure or nothing.",
+    "author": "Helen Keller",
+    "tag": "en"
+  },
+  {
+    "text": "The man who has confidence in himself gains the confidence of others.",
+    "author": "Hasidic Saying",
+    "tag": "en"
+  },
+  {
+    "text": "The only way to achieve the impossible is to believe it is possible.",
+    "author": "Charles Kingsleigh (paraphrase)",
+    "tag": "en"
+  },
+  {
+    "text": "Nothing is impossible, the word itself says 'I'm possible'!",
+    "author": "Audrey Hepburn",
+    "tag": "en"
+  }
 ]
