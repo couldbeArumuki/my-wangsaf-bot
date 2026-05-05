@@ -4,13 +4,14 @@ File ini menjelaskan asal-usul dan metodologi pembuatan dataset quote yang digun
 
 ## Dataset: `src/data/quotes.json`
 
-Dataset berisi **393 entri** yang dibagi menjadi tiga kategori:
+Dataset berisi **1003 entri** yang dibagi menjadi empat kategori:
 
 | Tag | Jumlah | Deskripsi |
 |-----|--------|-----------|
-| `jp` | 193 | Filosofi Jepang: Zen, Bushido, Wabi-sabi, Kaizen, Ikigai, Haiku, dll. |
-| `id` | 77  | Motivasi & peribahasa Indonesia/Nusantara |
-| `en` | 123 | Filosofi Barat: Stoik, parafrase tokoh terkenal, motivasi umum |
+| `jp` | 409 | Filosofi Jepang: Zen, Bushido, Wabi-sabi, Kaizen, Ikigai, Haiku, dll. |
+| `id` | 187 | Motivasi & peribahasa Indonesia/Nusantara |
+| `en` | 257 | Filosofi Barat: Stoik, parafrase tokoh terkenal, motivasi umum |
+| `philosophy` | 150 | Filsafat universal: Stoik, Eksistensialisme, Humanisme, dan lainnya |
 
 ---
 
@@ -47,6 +48,17 @@ Semua entri bertag `en` adalah **parafrase** yang:
 - Terinspirasi dari tokoh yang tulisannya sudah masuk domain publik (sebelum 1928): Marcus Aurelius, Seneca, Aristoteles, Sokrates, Laozi, Plutarch, dll.
 - Menggunakan label "(paraphrase)" untuk membedakan dari kutipan verbatim
 - Untuk tokoh modern (Einstein, Churchill, dll.), menggunakan parafrase yang menangkap semangat, bukan terjemahan langsung dari sumber berhak cipta
+
+### Kategori `philosophy` — Filsafat Universal
+
+Entri bertag `philosophy` adalah parafrase dan tulisan orisinal yang terinspirasi dari:
+- **Filsafat Stoik** — Marcus Aurelius, Seneca, Epiktetos (tulisan mereka sudah domain publik)
+- **Filsafat Sokratik/Platonis** — Socrates, Plato, Aristoteles (domain publik)
+- **Filsafat Eksistensialisme** — Sartre, Camus, Heidegger, Kierkegaard (parafrase inspiratif)
+- **Filsafat Modern** — Viktor Frankl, Carl Jung, Bertrand Russell, dsb. (parafrase transformatif)
+- **Filsafat Humanisme** dan **Filsafat Timur** yang universal
+
+Semua entri menggunakan label "(parafrase)" atau "(paraphrase)" untuk membedakan dari kutipan verbatim.
 
 ---
 
