@@ -188,13 +188,11 @@ async function tebakangka({ msg, jid, args, reply }) {
 async function quote({ args, reply }) {
   const filter = args[0]?.toLowerCase()
 
+  const TAG_FILTERS = ['jp', 'id', 'en', 'philosophy']
+
   let pool = quotesData
-  if (filter === 'jp') {
-    pool = quotesData.filter((q) => q.tag === 'jp')
-  } else if (filter === 'id') {
-    pool = quotesData.filter((q) => q.tag === 'id')
-  } else if (filter === 'en') {
-    pool = quotesData.filter((q) => q.tag === 'en')
+  if (TAG_FILTERS.includes(filter)) {
+    pool = quotesData.filter((q) => q.tag === filter)
   } else if (filter) {
     // Cari berdasarkan kata kunci di text atau author
     const kw = filter
@@ -202,7 +200,7 @@ async function quote({ args, reply }) {
       (q) => q.text.toLowerCase().includes(kw) || q.author.toLowerCase().includes(kw)
     )
     if (pool.length === 0) {
-      return reply(`❓ Tidak ada quote dengan kata kunci "*${args[0]}*".\nFilter yang tersedia: \`jp\`, \`id\`, \`en\``)
+      return reply(`❓ Tidak ada quote dengan kata kunci "*${args[0]}*".\nFilter yang tersedia: \`jp\`, \`id\`, \`en\`, \`philosophy\``)
     }
   }
 
