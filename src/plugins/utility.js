@@ -20,7 +20,7 @@ const menuList = {
   // Downloader
   tiktok: 'Download video TikTok tanpa watermark',
   ytmp3: 'Download audio dari YouTube',
-  ytmp4: 'Download video dari YouTube',
+  ytmp4: 'Download video dari YouTube (WhatsApp-compatible)',
 
   // Sticker
   sticker: 'Buat sticker dari gambar/video (reply media)',
@@ -33,13 +33,17 @@ const menuList = {
   // Interaktif
   suit: 'Main batu-gunting-kertas melawan bot',
   tebakangka: 'Tebak angka 1–100 (ketik lagi untuk menebak)',
-  quote: 'Kutipan motivasi acak',
+  quote: 'Kutipan motivasi acak (filter: jp/id/en)',
   afk: 'Set status AFK dengan alasan (opsional)',
   unafk: 'Batalkan status AFK secara manual',
   poll: 'Buat polling di grup',
   vote: 'Vote di polling yang aktif',
   pollresult: 'Lihat hasil polling',
   remind: 'Set pengingat (contoh: .remind 10m Minum obat)',
+  remindlist: 'Lihat daftar pengingat aktif',
+  remindcancel: 'Batalkan pengingat (contoh: .remindcancel 2)',
+  timer: 'Hitung mundur (contoh: .timer 30)',
+  todo: 'To-do list: add/list/done/del',
 }
 
 async function ping({ reply }) {
@@ -88,7 +92,7 @@ async function menu({ reply }) {
     {
       icon: '💬',
       name: 'Interaktif',
-      cmds: ['afk', 'unafk', 'quote', 'remind'],
+      cmds: ['afk', 'unafk', 'quote', 'remind', 'remindlist', 'remindcancel', 'timer', 'todo'],
     },
     {
       icon: '📊',

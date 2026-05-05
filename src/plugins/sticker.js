@@ -8,9 +8,13 @@ const { execSync } = require('child_process')
 /**
  * Cek apakah ffmpeg tersedia di sistem
  */
+function getFfmpegBin() {
+  return process.env.FFMPEG_PATH || 'ffmpeg'
+}
+
 function hasFfmpeg() {
   try {
-    execSync('ffmpeg -version', { stdio: 'ignore' })
+    execSync(`"${getFfmpegBin()}" -version`, { stdio: 'ignore' })
     return true
   } catch {
     return false
@@ -71,7 +75,7 @@ async function sticker({ sock, jid, msg, reply, config }) {
       const tmpOut = path.join(os.tmpdir(), `sticker_out_${Date.now()}.webp`)
       fs.writeFileSync(tmpIn, buffer)
       execSync(
-        `ffmpeg -i "${tmpIn}" -vf "scale=512:512:force_original_aspect_ratio=decrease,pad=512:512:(ow-iw)/2:(oh-ih)/2:color=0x00000000" -loop 0 -an -vcodec libwebp -q:v 50 -preset default -compression_level 6 -y "${tmpOut}"`,
+        `"${getFfmpegBin()}" -i "${tmpIn}" -vf "scale=512:512:force_original_aspect_ratio=decrease,pad=512:512:(ow-iw)/2:(oh-ih)/2:color=0x00000000" -loop 0 -an -vcodec libwebp -q:v 50 -preset default -compression_level 6 -y "${tmpOut}"`,
         { stdio: 'ignore' }
       )
       stickerBuffer = fs.readFileSync(tmpOut)
