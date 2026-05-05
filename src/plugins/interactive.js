@@ -436,7 +436,7 @@ async function todo({ msg, args, reply }) {
   if (subCmd === 'add') {
     const text = rest.join(' ').trim()
     if (!text) return reply('❓ Format: `.todo add <teks>`')
-    const id = userTodos.length > 0 ? Math.max(...userTodos.map((t) => t.id)) + 1 : 1
+    const id = userTodos.length > 0 ? userTodos.reduce((max, t) => t.id > max ? t.id : max, 0) + 1 : 1
     userTodos.push({ id, text, done: false, createdAt: new Date().toISOString() })
     todos[sender] = userTodos
     saveTodos(todos)

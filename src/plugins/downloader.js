@@ -67,6 +67,7 @@ async function transcodeForWhatsApp(inputFile, outputFile) {
   const ffmpeg = getFfmpegPath()
   const maxHeight = parseInt(process.env.YTMP4_MAX_HEIGHT) || 720
   const crf = parseInt(process.env.YTMP4_CRF) || 28
+  // Transcode biasanya butuh waktu 2x dari proses download (encoding lebih lambat dari download)
   const timeout = (parseInt(process.env.DOWNLOAD_TIMEOUT) || 120000) * 2
 
   // Scale ke maxHeight jika lebih tinggi; pastikan dimensi genap; format yuv420p
@@ -244,13 +245,15 @@ async function ytmp3Adapter(url) {
  */
 async function ytmp4Adapter(url) {
   const tmpDir = os.tmpdir()
-  const tmpBase = path.join(tmpDir, `video_wa_${Date.now()}`)
+  const ts = Date.now()
+  const RAW_PREFIX = `video_raw_${ts}`
+  const tmpBase = path.join(tmpDir, `video_wa_${ts}`)
+  const rawBase = path.join(tmpDir, RAW_PREFIX)
 
   try {
     // 1. Download via yt-dlp ke file sementara
     const ytdlp = getYtDlpPath()
     const timeout = parseInt(process.env.DOWNLOAD_TIMEOUT) || 120000
-    const rawBase = path.join(tmpDir, `video_raw_${Date.now()}`)
     const outTemplate = `${rawBase}.%(ext)s`
 
     let dlArgs = [
@@ -329,7 +332,7 @@ async function ytmp4Adapter(url) {
     // Bersihkan file sementara jika ada
     try {
       const leftover = fs.readdirSync(tmpDir).filter((f) =>
-        f.startsWith(path.basename(tmpBase)) || f.startsWith('video_raw_')
+        f.startsWith(path.basename(tmpBase)) || f.startsWith(RAW_PREFIX)
       )
       for (const f of leftover) {
         try { fs.unlinkSync(path.join(tmpDir, f)) } catch (_) { /* abaikan */ }
