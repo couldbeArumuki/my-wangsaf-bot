@@ -53,6 +53,7 @@ const menuList = {
   ship: 'Cek kompatibilitas dua orang (contoh: .ship Andi Budi)',
   rank: 'Leaderboard acak grup (ephemeral, hiburan)',
   top: 'Alias dari .rank',
+  waifu: 'Roll waifu acak dengan sistem rarity (Common/Rare/Epic/Legendary)',
 }
 
 async function ping({ reply }) {
@@ -101,7 +102,7 @@ async function menu({ reply }) {
     {
       icon: '🎉',
       name: 'Fun',
-      cmds: ['8ball', 'coinflip', 'dice', 'choose', 'ship', 'rank'],
+      cmds: ['8ball', 'coinflip', 'dice', 'choose', 'ship', 'rank', 'waifu'],
     },
     {
       icon: '💬',

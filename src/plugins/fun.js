@@ -1,7 +1,9 @@
 /**
  * src/plugins/fun.js
- * Fitur fun gratis: 8ball, coinflip, dice, choose, ship, rank/top
+ * Fitur fun gratis: 8ball, coinflip, dice, choose, ship, rank/top, waifu
  */
+
+const axios = require('axios')
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helper
@@ -201,6 +203,104 @@ async function rank({ sock, jid, isGroup, reply }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Command: .waifu  (roll waifu acak dengan sistem rarity)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const WAIFU_RARITIES = [
+  {
+    name: 'Common',
+    emoji: '⚪',
+    threshold: 0.60,
+    messages: [
+      'Waifu biasa aja sih, tapi tetep cute! 😊',
+      'Lumayan lah, bisa ditaruh di galeri. 📁',
+      'Common tapi hatinya gold! 💛',
+      'Siapa pun bisa dapet ini, tapi tetep worth it! 🙂',
+    ],
+  },
+  {
+    name: 'Rare',
+    emoji: '🔵',
+    threshold: 0.85,
+    messages: [
+      'Wih, Rare! Lumayan beruntung nih! 🍀',
+      'Rare drop! Simpen baik-baik ya! 💙',
+      'Jarang yang dapet ini, kamu spesial! ✨',
+      'Blue rarity! Waifumu bukan sembarangan! 💎',
+    ],
+  },
+  {
+    name: 'Epic',
+    emoji: '🟣',
+    threshold: 0.95,
+    messages: [
+      'EPIC! Dewa waifu sudah tersenyum padamu! 🌟',
+      'Epic pull! Kamu harus bersyukur nih! 🙏',
+      'Purple rarity! Waifu langka hadir untukmu! 👑',
+      'Gila, Epic?! Gacha lagi yang bisa aja dapet Legendary! 🎲',
+    ],
+  },
+  {
+    name: 'Legendary',
+    emoji: '🟡',
+    threshold: 1.00,
+    messages: [
+      'LEGENDARY!!! SELAMAT, KAMU DIPILIH WAIFU TERBAIK!!! 🏆✨🎉',
+      '⭐ SSR DAPET! LANGKA BANGET! SCREENSHOT CEPET! 📸',
+      'Dewa gacha berpihak padamu hari ini! Legendary waifu muncul! 🌈',
+      'LEGENDARY PULL! Kamu pasti anak kesayangan semesta! 💫🌟',
+    ],
+  },
+]
+
+function getRarity() {
+  const roll = Math.random()
+  for (const rarity of WAIFU_RARITIES) {
+    if (roll < rarity.threshold) return rarity
+  }
+  return WAIFU_RARITIES[WAIFU_RARITIES.length - 1]
+}
+
+async function waifu({ sock, jid, msg, reply }) {
+  await reply('🎲 Rolling waifu... tunggu sebentar!')
+
+  let imageUrl
+  try {
+    const res = await axios.get('https://api.waifu.pics/sfw/waifu', { timeout: 10000 })
+    imageUrl = res.data?.url
+    if (!imageUrl) throw new Error('URL gambar tidak ditemukan dalam respons API')
+  } catch (err) {
+    return reply('❌ Gagal mengambil waifu dari API. Coba lagi nanti!')
+  }
+
+  let imageBuffer
+  try {
+    const imgRes = await axios.get(imageUrl, { responseType: 'arraybuffer', timeout: 15000 })
+    imageBuffer = Buffer.from(imgRes.data)
+  } catch (err) {
+    return reply('❌ Gagal mengunduh gambar waifu. Coba lagi nanti!')
+  }
+
+  const rarity = getRarity()
+  const message = randomItem(rarity.messages)
+
+  const caption =
+    `${rarity.emoji} *Waifu Roll!*\n\n` +
+    `Rarity: *${rarity.emoji} ${rarity.name}*\n\n` +
+    `💬 ${message}`
+
+  try {
+    await sock.sendMessage(
+      jid,
+      { image: imageBuffer, caption },
+      { quoted: msg }
+    )
+  } catch (err) {
+    await reply(`❌ Gagal mengirim gambar waifu: ${err.message}`)
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Exports
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -212,4 +312,5 @@ module.exports = {
   ship,
   rank,
   top: rank,
+  waifu,
 }
