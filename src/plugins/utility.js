@@ -33,7 +33,7 @@ const menuList = {
   // Interaktif
   suit: 'Main batu-gunting-kertas melawan bot',
   tebakangka: 'Tebak angka 1–100 (ketik lagi untuk menebak)',
-  quote: 'Kutipan motivasi acak (filter: jp/id/en)',
+  quote: 'Kutipan motivasi acak (filter: jp/id/en/philosophy)',
   afk: 'Set status AFK dengan alasan (opsional)',
   unafk: 'Batalkan status AFK secara manual',
   poll: 'Buat polling di grup',
@@ -44,6 +44,15 @@ const menuList = {
   remindcancel: 'Batalkan pengingat (contoh: .remindcancel 2)',
   timer: 'Hitung mundur (contoh: .timer 30)',
   todo: 'To-do list: add/list/done/del',
+
+  // Fun
+  '8ball': 'Magic 8-ball (contoh: .8ball Apa aku akan sukses?)',
+  coinflip: 'Lempar koin (heads/tails)',
+  dice: 'Lempar dadu (contoh: .dice 20)',
+  choose: 'Pilih acak dari opsi (contoh: .choose Nasi | Mie)',
+  ship: 'Cek kompatibilitas dua orang (contoh: .ship Andi Budi)',
+  rank: 'Leaderboard acak grup (ephemeral, hiburan)',
+  top: 'Alias dari .rank',
 }
 
 async function ping({ reply }) {
@@ -88,6 +97,11 @@ async function menu({ reply }) {
       icon: '🎮',
       name: 'Mini Games',
       cmds: ['suit', 'tebakangka'],
+    },
+    {
+      icon: '🎉',
+      name: 'Fun',
+      cmds: ['8ball', 'coinflip', 'dice', 'choose', 'ship', 'rank'],
     },
     {
       icon: '💬',

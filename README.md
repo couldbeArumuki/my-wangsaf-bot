@@ -26,7 +26,7 @@ Bot WhatsApp gratis berbasis [Baileys](https://github.com/WhiskeySockets/Baileys
 | | `.say <teks>` | Text-to-speech (audio biasa) |
 | 🎮 Mini Games | `.suit <batu/gunting/kertas>` | Batu-gunting-kertas vs bot |
 | | `.tebakangka [angka]` | Tebak angka 1–100 (7 percobaan) |
-| 💬 Interaktif | `.quote [jp\|id\|en]` | Kutipan motivasi acak (393+ quote, dominan Jepang) |
+| 💬 Interaktif | `.quote [jp\|id\|en\|philosophy]` | Kutipan motivasi acak (1003+ quote, dominan Jepang) |
 | | `.afk [alasan]` | Set status AFK (otomatis cancel kalau kirim pesan) |
 | | `.unafk` | Batalkan AFK secara manual |
 | | `.remind <waktu> <pesan>` | Pengingat (contoh: `.remind 10m Minum obat`) |
@@ -34,6 +34,12 @@ Bot WhatsApp gratis berbasis [Baileys](https://github.com/WhiskeySockets/Baileys
 | | `.remindcancel <id>` | Batalkan pengingat berdasarkan ID |
 | | `.timer <detik>` | Hitung mundur (contoh: `.timer 30`) |
 | | `.todo add\|list\|done\|del` | To-do list personal (tersimpan di disk) |
+| 🎉 Fun | `.8ball <pertanyaan>` | Magic 8-ball jawab pertanyaanmu |
+| | `.coinflip` | Lempar koin (heads/tails) |
+| | `.dice [sisi]` | Lempar dadu (default 6 sisi, contoh: `.dice 20`) |
+| | `.choose <a\|b\|c>` | Bot pilih secara acak dari pilihanmu |
+| | `.ship <nama1> <nama2>` | Cek kompatibilitas dua orang (hiburan) |
+| | `.rank` / `.top` | Leaderboard acak grup (ephemeral, hiburan) |
 | 📊 Poll | `.poll <pertanyaan> \| opsi1 \| opsi2` | Buat polling di grup |
 | | `.vote <id> <nomor>` | Vote di polling aktif |
 | | `.pollresult <id>` | Lihat hasil polling |
@@ -105,7 +111,7 @@ my-wangsaf-bot/
 │   ├── lib/
 │   │   └── utils.js      # Utility functions
 │   ├── data/
-│   │   ├── quotes.json   # Dataset quote 393+ entri (jp/id/en)
+│   │   ├── quotes.json   # Dataset quote 1003+ entri (jp/id/en/philosophy)
 │   │   └── todos.json    # Data to-do list (auto-generated)
 │   └── plugins/
 │       ├── utility.js    # ping, runtime, owner, menu
@@ -113,7 +119,8 @@ my-wangsaf-bot/
 │       ├── downloader.js # tiktok, ytmp3, ytmp4 (via yt-dlp + ffmpeg)
 │       ├── sticker.js    # sticker, toimg
 │       ├── texttools.js  # tts, say
-│       └── interactive.js# suit, tebakangka, quote, afk, poll, remind, timer, todo
+│       ├── interactive.js# suit, tebakangka, quote, afk, poll, remind, timer, todo
+│       └── fun.js        # 8ball, coinflip, dice, choose, ship, rank
 ├── auth_info/            # Session files (diabaikan Git)
 ├── config.js             # Konfigurasi global
 ├── .env                  # Environment variables (tidak ter-commit)
@@ -212,7 +219,7 @@ DEBUG_DOWNLOAD=0           # 1=log detail download & transcode
 Menggunakan Google Translate TTS (tidak resmi). Bisa berubah kapan saja. Batas 200 karakter.
 
 ### Quote (.quote)
-Dataset lokal 393+ kutipan, dominan filosofi Jepang. Filter: `.quote jp`, `.quote id`, `.quote en`.
+Dataset lokal 1003+ kutipan, dominan filosofi Jepang. Filter: `.quote jp`, `.quote id`, `.quote en`, `.quote philosophy`.
 Lihat [SOURCES.md](./SOURCES.md) untuk informasi atribusi lengkap.
 
 ---
