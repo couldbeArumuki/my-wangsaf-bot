@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const config = require('../config')
+const { autoAI } = require('./plugins/autoai')
 
 // Load semua plugin dari folder plugins/
 const plugins = {}
@@ -77,7 +78,14 @@ async function handleMessage(sock, msg) {
     }
   }
 
-  if (!text.startsWith(prefix)) return
+  if (!text.startsWith(prefix)) {
+    try {
+      await autoAI({ sock, msg, text })
+    } catch (err) {
+      console.error('[AutoAI Error]', err.message)
+    }
+    return
+  }
 
   const body = text.slice(prefix.length).trim()
   const [rawCmd, ...argArr] = body.split(/\s+/)
