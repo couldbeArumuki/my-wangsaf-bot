@@ -20,10 +20,8 @@ require('dotenv').config()
 
 const { GoogleGenerativeAI } = require('@google/generative-ai')
 
-const SYSTEM_PROMPT =
-  'Kamu adalah asisten pribadi yang ramah, santai, helpful, dan sedikit humoris bernama Zizou AI. ' +
-  'Kamu ngobrol seperti teman dekat tapi sopan. Jawab dalam bahasa Indonesia yang natural dan enak dibaca. ' +
-  'Gunakan emoji secukupnya.'
+const SYSTEM_PROMPT = `Kamu adalah asisten pribadi yang ramah, santai, helpful, dan sedikit humoris bernama Zizou AI. 
+    Kamu ngobrol seperti teman dekat tapi sopan. Jawab dalam bahasa Indonesia yang natural dan enak dibaca. Gunakan emoji secukupnya.`
 
 const MODEL_NAME = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
 const API_KEY = process.env.GEMINI_API_KEY
@@ -32,8 +30,9 @@ const API_KEY = process.env.GEMINI_API_KEY
 const historyMap = new Map()
 
 // Anti-spam kalau API error
-const errorCooldownMap = new Map() // Map<remoteJid, number>
-const ERROR_COOLDOWN_MS = 30_000
+const errorCooldownMap = new Map() // Map<remoteJid, { until: number, streak: number }>
+const ERROR_COOLDOWN_BASE_MS = 30_000
+const ERROR_COOLDOWN_MAX_MS = 5 * 60_000
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -94,11 +93,6 @@ async function autoAI({ sock, msg, text }) {
 
   if (shouldSkipMessage({ msg, text, jid, isGroup })) return
 
-  // Kalau user lagi pakai command prefix, biarin handler command yang jawab
-  // (biar ga dobel balas)
-  const prefix = process.env.PREFIX || '.'
-  if (text.trim().startsWith(prefix)) return
-
   if (!API_KEY) {
     // Jangan spam; cukup diam kalau belum diset
     return
@@ -106,8 +100,8 @@ async function autoAI({ sock, msg, text }) {
 
   // Error cooldown per user
   const now = Date.now()
-  const cooldownUntil = errorCooldownMap.get(jid) || 0
-  if (now < cooldownUntil) return
+  const cooldownState = errorCooldownMap.get(jid)
+  if (cooldownState && now < cooldownState.until) return
 
   // Simpan pesan user ke history
   pushHistory(jid, 'user', text)
@@ -135,6 +129,7 @@ async function autoAI({ sock, msg, text }) {
 
     // Simpan jawaban model
     pushHistory(jid, 'model', replyText)
+    errorCooldownMap.delete(jid)
 
     await sock.sendMessage(jid, { text: replyText }, { quoted: msg })
   } catch (err) {
@@ -142,8 +137,11 @@ async function autoAI({ sock, msg, text }) {
 
     console.error('[autoAI] Error:', err?.message || err)
 
-    // Set cooldown biar ga spam error tiap message
-    errorCooldownMap.set(jid, Date.now() + ERROR_COOLDOWN_MS)
+    // Set cooldown + simple backoff per user biar ga spam error tiap message
+    const prev = errorCooldownMap.get(jid)
+    const streak = prev ? prev.streak + 1 : 1
+    const waitMs = Math.min(ERROR_COOLDOWN_BASE_MS * (2 ** (streak - 1)), ERROR_COOLDOWN_MAX_MS)
+    errorCooldownMap.set(jid, { until: Date.now() + waitMs, streak })
 
     // Jangan terlalu sering ngasih notif error ke user
     // (tapi sekali-sekali oke, biar user ngerti)

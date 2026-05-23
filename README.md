@@ -75,6 +75,10 @@ SESSION_NAME=my-wangsaf-bot
 # Path ke yt-dlp dan ffmpeg (jika tidak ada di PATH)
 YTDLP_PATH=yt-dlp
 FFMPEG_PATH=ffmpeg
+
+# AI auto-reply (Gemini)
+GEMINI_API_KEY=your_google_ai_api_key
+GEMINI_MODEL=gemini-2.5-flash
 ```
 
 ### 4. Jalankan Bot

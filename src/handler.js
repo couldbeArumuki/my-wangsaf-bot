@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const config = require('../config')
+const { autoAI } = require('./plugins/autoai')
 
 // Load semua plugin dari folder plugins/
 const plugins = {}
@@ -12,7 +13,7 @@ for (const file of pluginFiles) {
     const commands = require(path.join(pluginsDir, file))
     for (const [cmd, fn] of Object.entries(commands)) {
       // Ignorar keys dengan awalan _ (helpers internal, bukan command pengguna)
-      if (typeof fn === 'function' && !cmd.startsWith('_')) {
+      if (typeof fn === 'function' && !cmd.startsWith('_') && cmd.toLowerCase() !== 'autoai') {
         plugins[cmd.toLowerCase()] = fn
       }
     }
@@ -77,7 +78,12 @@ async function handleMessage(sock, msg) {
     }
   }
 
-  if (!text.startsWith(prefix)) return
+  if (!text.startsWith(prefix)) {
+    if (!isGroup && typeof autoAI === 'function') {
+      await autoAI({ sock, msg, text })
+    }
+    return
+  }
 
   const body = text.slice(prefix.length).trim()
   const [rawCmd, ...argArr] = body.split(/\s+/)
