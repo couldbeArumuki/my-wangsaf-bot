@@ -40,6 +40,7 @@ Bot WhatsApp gratis berbasis [Baileys](https://github.com/WhiskeySockets/Baileys
 | | `.choose <a\|b\|c>` | Bot pilih secara acak dari pilihanmu |
 | | `.ship <nama1> <nama2>` | Cek kompatibilitas dua orang (hiburan) |
 | | `.rank` / `.top` | Leaderboard acak grup (ephemeral, hiburan) |
+| 🤖 AI | Auto AI Reply (Zizou AI) | Auto reply private chat pakai Groq (`llama-3.3-70b-versatile`) |
 | 📊 Poll | `.poll <pertanyaan> \| opsi1 \| opsi2` | Buat polling di grup |
 | | `.vote <id> <nomor>` | Vote di polling aktif |
 | | `.pollresult <id>` | Lihat hasil polling |
@@ -71,6 +72,7 @@ OWNER_NUMBER=6281234567890   # Nomor WhatsApp owner (format internasional, tanpa
 BOT_NAME=WangsafBot
 PREFIX=.
 SESSION_NAME=my-wangsaf-bot
+GROQ_API_KEY=your_groq_api_key
 
 # Path ke yt-dlp dan ffmpeg (jika tidak ada di PATH)
 YTDLP_PATH=yt-dlp
@@ -120,7 +122,8 @@ my-wangsaf-bot/
 │       ├── sticker.js    # sticker, toimg
 │       ├── texttools.js  # tts, say
 │       ├── interactive.js# suit, tebakangka, quote, afk, poll, remind, timer, todo
-│       └── fun.js        # 8ball, coinflip, dice, choose, ship, rank
+│       ├── fun.js        # 8ball, coinflip, dice, choose, ship, rank
+│       └── autoai.js     # auto AI reply private chat (Groq)
 ├── auth_info/            # Session files (diabaikan Git)
 ├── config.js             # Konfigurasi global
 ├── .env                  # Environment variables (tidak ter-commit)
@@ -143,6 +146,16 @@ module.exports = { hello }
 ```
 
 Command langsung aktif tanpa perlu register di tempat lain.
+
+### Setup Auto AI Reply (Zizou AI)
+```bash
+npm i groq-sdk
+```
+
+Tambahkan env berikut:
+```env
+GROQ_API_KEY=your_groq_api_key
+```
 
 ---
 
