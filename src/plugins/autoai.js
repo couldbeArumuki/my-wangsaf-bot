@@ -1,162 +1,183 @@
 /**
- * src/plugins/autoai.js
- *
- * Auto AI reply (private chat only) menggunakan Google Gemini via `@google/generative-ai`.
+ * Auto AI Reply Plugin (Zizou AI) — Groq
+ * --------------------------------------
+ * Goal:
+ * - Otomatis membalas pesan masuk di PRIVATE CHAT tanpa command.
+ * - Menggunakan Groq SDK (`groq-sdk`) model: `llama-3.3-70b-versatile`.
+ * - Menyimpan history percakapan per user (remoteJid) memakai Map.
  *
  * Cara pakai singkat:
- * 1) Install dependency: `npm i @google/generative-ai`
+ * 1) Install dependency: `npm i groq-sdk`
  * 2) Set env di `.env`:
- *    - GEMINI_API_KEY=xxxx
- *    - (opsional) GEMINI_MODEL=gemini-2.5-flash
- * 3) Pastikan handler kamu memanggil plugin ini untuk setiap pesan masuk (non-command).
+ *    - GROQ_API_KEY=xxxx
+ * 3) Pastikan message handler utama memanggil `autoAI({ sock, msg, text })`
+ *    untuk setiap pesan masuk yang bukan command.
  *
  * Catatan:
- * - Plugin ini menyimpan history percakapan per user (remoteJid) di memory (Map) dan dibatasi 15 pesan.
- * - Sudah ada delay 1–2 detik sebelum balas agar terasa natural.
- * - Ada basic error handling + cooldown agar tidak spam saat error.
+ * - History disimpan in-memory (akan hilang saat restart bot).
+ * - Max history: 15 messages.
+ * - Ada delay 800–1200ms agar terasa natural.
+ * - Hanya aktif di private chat (tidak membalas di group).
  */
 
-require('dotenv').config()
+'use strict';
 
-const { GoogleGenerativeAI } = require('@google/generative-ai')
+require('dotenv').config();
+
+const Groq = require('groq-sdk');
 
 const SYSTEM_PROMPT =
-  'Kamu adalah asisten pribadi yang ramah, santai, helpful, dan sedikit humoris bernama Zizou AI. ' +
-  'Kamu ngobrol seperti teman dekat tapi sopan. Jawab dalam bahasa Indonesia yang natural dan enak dibaca. ' +
-  'Gunakan emoji secukupnya.'
+  'Kamu adalah Zizou AI, asisten pribadi yang ramah, santai, helpful, dan sedikit humoris. ' +
+  'Ngobrol seperti teman dekat tapi sopan. Selalu jawab dalam bahasa Indonesia yang natural dan enak dibaca. ' +
+  'Gunakan emoji secukupnya.';
 
-const MODEL_NAME = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
-const API_KEY = process.env.GEMINI_API_KEY
+const MODEL = 'llama-3.3-70b-versatile';
+const MAX_HISTORY = 15;
 
-// Map<remoteJid, Array<{ role: 'user'|'model', parts: [{ text: string }] }>>
-const historyMap = new Map()
-
-// Anti-spam kalau API error
-const errorCooldownMap = new Map() // Map<remoteJid, number>
-const ERROR_COOLDOWN_MS = 30_000
+// Map<remoteJid, Array<{ role: 'user'|'assistant', content: string }>>
+const historyMap = new Map();
 
 function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function pushHistory(jid, role, text) {
-  if (!text) return
-
-  const arr = historyMap.get(jid) || []
-  arr.push({ role, parts: [{ text }] })
-
-  // Batasi maksimal 15 pesan terakhir
-  const trimmed = arr.slice(-15)
-  historyMap.set(jid, trimmed)
+function randomDelay(min = 800, max = 1200) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function shouldSkipMessage({ msg, text, jid, isGroup }) {
-  if (!jid) return true
-  if (isGroup) return true
-  if (!text || !text.trim()) return true
+function isGroupJid(jid = '') {
+  return typeof jid === 'string' && jid.endsWith('@g.us');
+}
+
+function shouldSkipMessage({ msg, text, jid }) {
+  if (!jid) return true;
+  if (isGroupJid(jid)) return true; // private chat only
+  if (jid === 'status@broadcast') return true;
+
+  const t = typeof text === 'string' ? text.trim() : '';
+  if (!t) return true;
 
   // skip pesan dari bot sendiri
-  if (msg?.key?.fromMe) return true
-
-  // skip broadcast/status
-  if (jid === 'status@broadcast') return true
+  if (msg?.key?.fromMe) return true;
 
   // skip message system/ephemeral yang ga ada konten
-  if (!msg?.message) return true
+  if (!msg?.message) return true;
 
-  return false
+  // Kalau user pakai command prefix, biarin handler command yang jawab
+  const prefix = process.env.PREFIX || '.';
+  if (t.startsWith(prefix)) return true;
+
+  return false;
 }
 
-async function sendTypingLike(sock, jid) {
-  // Best-effort: kalau method-nya ada, kirim presence
+function pushHistory(jid, role, content) {
+  if (!content) return;
+
+  const arr = historyMap.get(jid) || [];
+  arr.push({ role, content });
+
+  // keep last MAX_HISTORY messages
+  if (arr.length > MAX_HISTORY) {
+    arr.splice(0, arr.length - MAX_HISTORY);
+  }
+
+  historyMap.set(jid, arr);
+}
+
+function buildMessages(jid, userText) {
+  const history = historyMap.get(jid) || [];
+
+  return [
+    { role: 'system', content: SYSTEM_PROMPT },
+    ...history,
+    { role: 'user', content: userText },
+  ];
+}
+
+async function maybeSendPresence(sock, jid, state) {
   try {
     if (typeof sock?.sendPresenceUpdate === 'function') {
-      await sock.sendPresenceUpdate('composing', jid)
+      await sock.sendPresenceUpdate(state, jid);
     }
   } catch (_) {
-    // ignore
+    // best-effort
   }
 }
 
-async function stopTypingLike(sock, jid) {
-  try {
-    if (typeof sock?.sendPresenceUpdate === 'function') {
-      await sock.sendPresenceUpdate('paused', jid)
-    }
-  } catch (_) {
-    // ignore
-  }
-}
-
+/**
+ * autoAI
+ * @param {Object} params
+ * @param {import('@whiskeysockets/baileys').WASocket} params.sock
+ * @param {any} params.msg
+ * @param {string} params.text
+ */
 async function autoAI({ sock, msg, text }) {
-  const jid = msg?.key?.remoteJid
-  const isGroup = typeof jid === 'string' ? jid.endsWith('@g.us') : false
+  const jid = msg?.key?.remoteJid;
 
-  if (shouldSkipMessage({ msg, text, jid, isGroup })) return
+  if (shouldSkipMessage({ msg, text, jid })) return;
 
-  // Kalau user lagi pakai command prefix, biarin handler command yang jawab
-  // (biar ga dobel balas)
-  const prefix = process.env.PREFIX || '.'
-  if (text.trim().startsWith(prefix)) return
-
-  if (!API_KEY) {
-    // Jangan spam; cukup diam kalau belum diset
-    return
+  const apiKey = process.env.GROQ_API_KEY;
+  if (!apiKey) {
+    // Jangan spam; cukup sekali-kali kasih tau kalau user chat
+    await sock.sendMessage(
+      jid,
+      { text: 'GROQ_API_KEY belum diset ya, Zizou-sama 🙏 Jadi aku belum bisa Auto AI reply.' },
+      { quoted: msg }
+    );
+    return;
   }
 
-  // Error cooldown per user
-  const now = Date.now()
-  const cooldownUntil = errorCooldownMap.get(jid) || 0
-  if (now < cooldownUntil) return
+  const userText = String(text).trim();
 
-  // Simpan pesan user ke history
-  pushHistory(jid, 'user', text)
+  // Loading message (sesuai requirement)
+  await sock.sendMessage(jid, { text: '🤖 Zizou AI sedang mikir...' }, { quoted: msg });
 
-  const history = historyMap.get(jid) || []
+  // Natural delay
+  await maybeSendPresence(sock, jid, 'composing');
+  await sleep(randomDelay(800, 1200));
 
   try {
-    const genAI = new GoogleGenerativeAI(API_KEY)
-    const model = genAI.getGenerativeModel({ model: MODEL_NAME, systemInstruction: SYSTEM_PROMPT })
+    const groq = new Groq({ apiKey });
 
-    // Delay natural + typing indicator
-    const delayMs = 1000 + Math.floor(Math.random() * 1000)
-    await sendTypingLike(sock, jid)
-    await sleep(delayMs)
+    const messages = buildMessages(jid, userText);
 
-    const chat = model.startChat({ history })
+    const completion = await groq.chat.completions.create({
+      model: MODEL,
+      messages,
+      temperature: 0.7,
+      max_tokens: 512,
+    });
 
-    // Optional: tambah sedikit safety biar ga kepanjangan
-    const result = await chat.sendMessage(text)
-    const replyText = result?.response?.text?.()
+    const replyText = completion?.choices?.[0]?.message?.content?.trim();
 
-    await stopTypingLike(sock, jid)
+    await maybeSendPresence(sock, jid, 'paused');
 
-    if (!replyText || !replyText.trim()) return
-
-    // Simpan jawaban model
-    pushHistory(jid, 'model', replyText)
-
-    await sock.sendMessage(jid, { text: replyText }, { quoted: msg })
-  } catch (err) {
-    await stopTypingLike(sock, jid)
-
-    console.error('[autoAI] Error:', err?.message || err)
-
-    // Set cooldown biar ga spam error tiap message
-    errorCooldownMap.set(jid, Date.now() + ERROR_COOLDOWN_MS)
-
-    // Jangan terlalu sering ngasih notif error ke user
-    // (tapi sekali-sekali oke, biar user ngerti)
-    try {
+    if (!replyText) {
       await sock.sendMessage(
         jid,
-        { text: 'Lagi error pas akses AI-nya 😅 Coba lagi sebentar ya.' },
+        { text: 'Hmm… aku kepikiran tapi jawabannya kosong 😅 Coba ulangin lagi ya, Zizou-sama.' },
         { quoted: msg }
-      )
-    } catch (_) {
-      // ignore
+      );
+      return;
     }
+
+    // Update history
+    pushHistory(jid, 'user', userText);
+    pushHistory(jid, 'assistant', replyText);
+
+    await sock.sendMessage(jid, { text: replyText }, { quoted: msg });
+  } catch (err) {
+    await maybeSendPresence(sock, jid, 'paused');
+
+    // eslint-disable-next-line no-console
+    console.error('[autoAI] Error:', err?.message || err);
+
+    await sock.sendMessage(
+      jid,
+      { text: 'Aduh, ada error pas aku mikir 😵‍💫 Coba beberapa saat lagi ya, Zizou-sama.' },
+      { quoted: msg }
+    );
   }
 }
 
-module.exports = { autoAI }
+module.exports = { autoAI };
